@@ -156,9 +156,9 @@ const FishboneNode = ({
   title: string, icon: any, leftContent: string, rightContent: string, leftActive: boolean, rightActive: boolean, colorName: 'purple' | 'blue' | 'emerald' 
 }) => {
   const colorMap = {
-    purple: { border: 'border-purple-500', borderMuted: 'border-purple-500/30', borderHover: 'group-hover:border-purple-500/60', text: 'text-purple-400', shadow: 'shadow-[0_0_15px_rgba(168,85,247,0.4)]' },
-    blue: { border: 'border-blue-500', borderMuted: 'border-blue-500/30', borderHover: 'group-hover:border-blue-500/60', text: 'text-blue-400', shadow: 'shadow-[0_0_15px_rgba(59,130,246,0.4)]' },
-    emerald: { border: 'border-emerald-500', borderMuted: 'border-emerald-500/30', borderHover: 'group-hover:border-emerald-500/60', text: 'text-emerald-400', shadow: 'shadow-[0_0_15px_rgba(16,185,129,0.4)]' }
+    purple: { border: 'border-purple-500', borderMuted: 'border-purple-500/30', borderHover: 'group-hover:border-purple-500/60', text: 'text-purple-400', shadow: 'shadow-[0_0_25px_rgba(168,85,247,0.5)]' },
+    blue: { border: 'border-blue-500', borderMuted: 'border-blue-500/30', borderHover: 'group-hover:border-blue-500/60', text: 'text-blue-400', shadow: 'shadow-[0_0_25px_rgba(59,130,246,0.5)]' },
+    emerald: { border: 'border-emerald-500', borderMuted: 'border-emerald-500/30', borderHover: 'group-hover:border-emerald-500/60', text: 'text-emerald-400', shadow: 'shadow-[0_0_25px_rgba(16,185,129,0.5)]' }
   };
   const c = colorMap[colorName];
 
@@ -173,7 +173,7 @@ const FishboneNode = ({
         
         {/* Center Label Pill */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 z-20 flex items-center justify-center">
-          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-6 py-2 flex items-center gap-2.5 shadow-[0_0_20px_rgba(var(--color-${colorName}),0.6)] ${c.shadow} whitespace-nowrap transition-transform hover:scale-105 cursor-default`}>
+          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-6 py-2 flex items-center gap-2.5 ${c.shadow} whitespace-nowrap transition-transform hover:scale-105 cursor-default`}>
             <Icon size={18} className={c.text} />
             <span className="text-sm font-bold tracking-widest uppercase text-white">{title}</span>
           </div>
