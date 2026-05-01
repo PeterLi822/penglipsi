@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle, CheckCircle2, Users, Truck, Briefcase, RotateCcw } from 'lucide-react';
 
@@ -234,6 +234,16 @@ function App() {
   const [lang, setLang] = useState<'en' | 'zh'>('en');
   const [activeLeft, setActiveLeft] = useState<LeftScenario>('default');
   const [activeRight, setActiveRight] = useState<RightScenario>('default');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('pwd') === 'pacific') {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const toggleLang = () => {
     setLang(prev => prev === 'en' ? 'zh' : 'en');
@@ -252,8 +262,80 @@ function App() {
     setActiveRight('default');
   };
 
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passwordInput.toLowerCase() === 'pacific') {
+      setIsAuthenticated(true);
+    } else {
+      setPasswordError(true);
+      setTimeout(() => setPasswordError(false), 2000);
+    }
+  };
+
   const leftData = t.matrix.left[activeLeft];
   const rightData = t.matrix.right[activeRight];
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-brand-dark flex flex-col items-center justify-center p-6 font-sans">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-brand-card border border-white/10 p-8 md:p-10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] max-w-md w-full text-center relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-48 h-48 bg-brand-accent/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+          
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-accent to-red-700 flex items-center justify-center font-bold text-white text-3xl shadow-lg mx-auto mb-6 border border-white/10">
+            PL
+          </div>
+          
+          <h1 className="text-2xl font-bold text-white mb-2 tracking-widest">{t.navTitle[lang]}</h1>
+          <p className="text-brand-accent font-medium mb-8 text-sm">{t.navSubtitle[lang]}</p>
+          
+          <div className="bg-brand-dark border border-white/5 rounded-2xl p-5 mb-8 text-sm text-brand-muted space-y-3 relative z-10 shadow-inner">
+            <div className="flex items-center justify-center gap-3">
+              <MessageSquare size={16} className="text-brand-accent/70" />
+              <span className="font-medium text-white">Email:</span> aershi@gmail.com
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <Globe size={16} className="text-brand-accent/70" />
+              <span className="font-medium text-white">CA Cell:</span> 647-879-2477
+            </div>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-5 relative z-10">
+            <div>
+              <input 
+                type="password" 
+                placeholder={lang === 'en' ? "Enter Access Password" : "请输入访问密码"}
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+                className={`w-full bg-brand-dark border ${passwordError ? 'border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.3)]' : 'border-white/10 focus:border-brand-accent'} rounded-xl px-4 py-3.5 text-white outline-none transition-all text-center tracking-[0.3em]`}
+              />
+              {passwordError && <p className="text-red-500 text-xs mt-2 absolute w-full text-center">Incorrect password</p>}
+            </div>
+            <button 
+              type="submit"
+              className="w-full bg-brand-accent hover:bg-red-600 text-white font-bold py-3.5 px-4 rounded-xl transition-all shadow-[0_0_20px_rgba(239,68,68,0.4)] hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] flex items-center justify-center gap-2"
+            >
+              <Lock size={18} />
+              {lang === 'en' ? "Access Presentation" : "访问高管演示"}
+            </button>
+          </form>
+
+          <div className="mt-8 pt-6 border-t border-white/5 flex justify-center relative z-10">
+            <button 
+              onClick={toggleLang}
+              className="text-xs text-brand-muted hover:text-brand-accent transition-colors flex items-center gap-1.5"
+            >
+              <Globe size={14} />
+              {lang === 'en' ? 'Switch to Chinese' : 'Switch to English'}
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-brand-dark selection:bg-brand-accent selection:text-white pb-0 font-sans text-brand-text/90">
