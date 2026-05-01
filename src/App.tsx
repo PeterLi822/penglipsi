@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { PackageSearch, Calendar, BookOpen, ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare } from 'lucide-react';
+import { PackageSearch, Calendar, BookOpen, ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Briefcase, GitMerge, Layers } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -23,12 +23,12 @@ const t = {
   heroDesc: { en: "Combining 7+ years of hands-on warehouse operations with a structured, data-driven approach to inventory management. I build processes that make planning realistic.", zh: "将超过 7 年的一线仓储实操经验与系统化、数据驱动的库存管理方法相结合。我构建的流程能让“计划”真正落地。" },
   heroButton: { en: "Read My Note to HR", zh: "阅读我的引言" },
   
-  msgTitle: { en: "A Note for Ben (Talent Acquisition)", zh: "写给 Ben 的引言：经验的转化" },
+  msgTitle: { en: "An Introduction for Ben", zh: "写给 Ben 的自我介绍" },
   msgP1: { en: "Hi Ben,", zh: "Ben，你好：" },
-  msgP2: { en: "Thank you for reviewing my application. Since you are holding my resume, I built this framework to provide you with the exact context of how my background directly addresses the needs of Pacific Smoke.", zh: "感谢你抽空审阅我的申请。由于你手中正拿着我的简历，我专门制作了这个展示框架，希望向你直观地说明：我的实操背景究竟是如何精准满足 Pacific Smoke 的岗位需求的。" },
-  msgP3: { en: "You might notice my title was 'Operations Manager'. I want to clarify that my role went far beyond traditional warehouse execution. I functioned as the central nervous system of our inventory planning.", zh: "你可能会注意到我的职位头衔是“运营经理”。我想详细说明的是，我的实际职责远超传统的库房执行范畴，我实际上充当了整个库存计划体系的中枢神经。" },
-  msgP4: { en: "I managed physical cycle counts that dictated system data integrity. I controlled replenishment rhythms based on capacity and demand urgency. I directly handled vendor disputes and inbound freight negotiations. My experience is a 1:1 match for your Supply Planner requirements, just built from the warehouse floor up.", zh: "我通过管理物理盘点来确保系统数据的绝对准确；我根据仓储产能和前端需求紧急程度，直接决定补货节奏；我更是直接参与了供应商纠纷处理和入境物流谈判。我的经验与你们对 Supply Planner 的要求是 1:1 匹配的，只不过我是从实操落地的视角自下而上建立的这些能力。" },
-  msgP5: { en: "I am not just a theorist; I know exactly how planning parameters (MOQ, Safety Stock, Lead Time) impact physical realities. This deck is my framework for how I will bring value to your team.", zh: "我不是纯看报表的理论家，我极其清楚各项计划参数（MOQ、安全库存、交货期）对物理现实的巨大影响。这个网页，就是我向你展示我将如何为团队带来价值的框架。" },
+  msgP2: { en: "Thank you for the opportunity to interview with Pacific Smoke. I built this framework to provide you with deeper context on how my background directly addresses the needs of your Supply Planner role.", zh: "感谢你给我这次与 Pacific Smoke 面试的机会。我专门制作了这个网页，希望能向你更直观地展示：我的实操背景究竟是如何精准满足你们对 Supply Planner 的岗位需求的。" },
+  msgP3: { en: "My experience goes far beyond traditional warehouse execution. I functioned as the central nervous system of our inventory planning.", zh: "我的实际职责远超传统的库房执行范畴，我实际上充当了整个库存计划体系的中枢神经。" },
+  msgP4: { en: "I managed physical cycle counts that dictated system data integrity. I controlled replenishment rhythms based on capacity and demand urgency. I directly handled vendor disputes and inbound freight negotiations.", zh: "我通过管理物理盘点来确保系统数据的绝对准确；我根据仓储产能和前端需求紧急程度，直接决定补货节奏；我更是直接参与了跨国供应商纠纷处理和入境物流谈判。" },
+  msgP5: { en: "I know exactly how planning parameters (MOQ, Safety Stock, Lead Time) impact physical realities. This deck is my framework for how I will bring immediate value to your team.", zh: "我极其清楚各项计划参数（MOQ、安全库存、交货期）对物理现实的巨大影响。这个网页，就是我向你展示我将如何为团队带来即时价值的框架。" },
   msgSign: { en: "— Peng Li", zh: "— 李鹏 (Peng Li)" },
 
   // POP 7.0 Personality Section
@@ -68,14 +68,15 @@ const t = {
   plan90_1: { en: "Present the first comprehensive Vendor Compliance Report to the Supply Planning Manager.", zh: "向供应链计划经理提交第一份全面的《供应商合规与表现报告》。" },
   plan90_2: { en: "Coordinate inventory plans for upcoming New Product Launches (NPL) aligning supply with demand.", zh: "统筹即将到来的新产品发布 (NPL) 的前置库存计划，确保供需完美平衡。" },
 
-  learnTitle: { en: "Closing the Gap: Proactive Upskilling", zh: "填补认知差：主动技能进阶" },
-  learnDesc: { en: "To ensure a rapid and smooth transition from Operations to Planning, I have proactively completed formal training in Supply Chain and Inventory Management methodologies.", zh: "为了确保从运营实操到系统计划的平稳过渡，我已主动完成了供应链与库存管理方法论的正规系统化培训。" },
-  learnCourse1: { en: "Supply Chain Foundations", zh: "供应链基础" },
-  learnCourse2: { en: "Inventory Management Foundations", zh: "库存管理基础" },
-  learnCourse3: { en: "Getting Started as an Inventory Planning Manager", zh: "库存计划经理入门指南" },
-  learnVia: { en: "Completed via LinkedIn Learning", zh: "通过 LinkedIn Learning 完成" },
-  placeholder1: { en: "Add LinkedIn Certificate Screenshots Here", zh: "请在此处添加 LinkedIn 证书截图" },
-  placeholder2: { en: "Replace this placeholder with images in the codebase", zh: "将代码库中的图片路径替换至此处" }
+  // Knowledge Capabilities
+  knowledgeTitle: { en: "Supply Planning Framework & Methodologies", zh: "供应链规划知识体系与方法论" },
+  knowledgeDesc: { en: "Beyond my hands-on experience, I have built a solid theoretical foundation in modern supply planning methodologies.", zh: "在丰富的实操经验之外，我也构建了扎实的现代供应链规划与库存管理的知识体系。" },
+  k1Title: { en: "Inventory Strategy & Optimization", zh: "库存战略与优化" },
+  k1Desc: { en: "Deep understanding of Safety Stock calculations, Economic Order Quantity (EOQ), and Reorder Point (ROP) modeling.", zh: "深刻理解安全库存 (Safety Stock) 的计算逻辑、经济订货批量 (EOQ) 以及订货点 (ROP) 建模。" },
+  k2Title: { en: "S&OP Alignment", zh: "产销协同规划 (S&OP)" },
+  k2Desc: { en: "Balancing demand forecasts with supply constraints, and synchronizing with Marketing and Sales for New Product Launches.", zh: "能够平衡需求预测与供应限制，并在新产品发布阶段与营销和销售团队保持紧密同步。" },
+  k3Title: { en: "Supplier Risk & Performance Management", zh: "供应商风险与绩效管理" },
+  k3Desc: { en: "Strategies for mitigating lead-time volatility, monitoring vendor compliance, and evaluating MOQ trade-offs.", zh: "掌握缓解交货期波动、监控供应商合规性以及评估最小起订量 (MOQ) 权衡的综合策略。" }
 };
 
 function App() {
@@ -304,54 +305,44 @@ function App() {
         </div>
       </section>
 
-      {/* Learning Path */}
+      {/* Knowledge Section (Replaced LinkedIn courses) */}
       <section className="py-24 px-6 bg-brand-card/50 border-t border-white/5">
         <FadeIn>
-          <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-            <div className="flex-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t.learnTitle[lang]}</h2>
-              <p className="text-brand-muted text-lg mb-10 leading-relaxed">
-                {t.learnDesc[lang]}
-              </p>
-              
-              <div className="space-y-5">
-                <div className="flex items-center gap-5 bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-md hover:shadow-brand-accent/10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-transparent border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
-                    <BookOpen size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold">{t.learnCourse1[lang]}</h4>
-                    <p className="text-sm text-brand-muted mt-1">{t.learnVia[lang]}</p>
-                  </div>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t.knowledgeTitle[lang]}</h2>
+            <p className="text-brand-muted text-lg leading-relaxed">
+              {t.knowledgeDesc[lang]}
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <FadeIn delay={0.1}>
+              <div className="bg-brand-card p-8 rounded-3xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-lg hover:shadow-brand-accent/10 h-full">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
+                  <Layers size={28} />
                 </div>
-                <div className="flex items-center gap-5 bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-md hover:shadow-brand-accent/10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-transparent border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
-                    <PackageSearch size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold">{t.learnCourse2[lang]}</h4>
-                    <p className="text-sm text-brand-muted mt-1">{t.learnVia[lang]}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-5 bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-md hover:shadow-brand-accent/10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-transparent border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
-                    <Calendar size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold">{t.learnCourse3[lang]}</h4>
-                    <p className="text-sm text-brand-muted mt-1">{t.learnVia[lang]}</p>
-                  </div>
-                </div>
+                <h4 className="text-white font-bold text-lg mb-3">{t.k1Title[lang]}</h4>
+                <p className="text-sm text-brand-muted leading-relaxed">{t.k1Desc[lang]}</p>
               </div>
-            </div>
-            <div className="flex-1 w-full">
-              {/* Placeholder for the user's certificate or screenshot */}
-              <div className="aspect-[4/3] bg-brand-dark border-2 border-dashed border-white/10 rounded-3xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden group hover:border-brand-accent/50 transition-colors">
-                <BookOpen size={56} className="text-brand-muted/50 mb-6 group-hover:text-brand-accent transition-colors" />
-                <p className="text-brand-muted font-bold text-lg group-hover:text-white transition-colors">{t.placeholder1[lang]}</p>
-                <p className="text-sm text-brand-muted/70 mt-3">{t.placeholder2[lang]}</p>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div className="bg-brand-card p-8 rounded-3xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-lg hover:shadow-brand-accent/10 h-full">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
+                  <GitMerge size={28} />
+                </div>
+                <h4 className="text-white font-bold text-lg mb-3">{t.k2Title[lang]}</h4>
+                <p className="text-sm text-brand-muted leading-relaxed">{t.k2Desc[lang]}</p>
               </div>
-            </div>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <div className="bg-brand-card p-8 rounded-3xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-lg hover:shadow-brand-accent/10 h-full">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
+                  <Briefcase size={28} />
+                </div>
+                <h4 className="text-white font-bold text-lg mb-3">{t.k3Title[lang]}</h4>
+                <p className="text-sm text-brand-muted leading-relaxed">{t.k3Desc[lang]}</p>
+              </div>
+            </FadeIn>
           </div>
         </FadeIn>
       </section>
