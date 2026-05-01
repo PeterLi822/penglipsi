@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { PackageSearch, Calendar, BookOpen, ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Briefcase, GitMerge, Layers } from 'lucide-react';
+import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Briefcase, GitMerge, Layers } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -53,6 +53,16 @@ const t = {
   star2Action: { en: "By assessing floor capacity against incoming demand, I proactively identified risks of excess and shorts. I adjusted PO timings and negotiated directly with vendors to delay or expedite shipments.", zh: "通过比对仓库产能与需求预测，我主动识别了爆仓或短缺风险。我及时调整 PO 节奏，并直接与供应商交涉推迟或加急发货。" },
   star2Result: { en: "Result: Prevented stockouts during peak seasons while avoiding warehousing overflow (Matching JD: 'Daily inventory assessments to determine shorts, risks, and excess').", zh: "结果：在旺季有效防止了断货，同时避免了不必要的仓库爆仓 (直接对标 JD: '进行每日库存评估，以确定短缺、风险和过剩')。" },
 
+  // Knowledge Capabilities
+  knowledgeTitle: { en: "Supply Planning Framework & Methodologies", zh: "供应链规划知识体系与方法论" },
+  knowledgeDesc: { en: "Beyond my hands-on experience, I have built a solid theoretical foundation in modern supply planning methodologies.", zh: "在丰富的实操经验之外，我也构建了扎实的现代供应链规划与库存管理的知识体系。" },
+  k1Title: { en: "Inventory Strategy & Optimization", zh: "库存战略与优化" },
+  k1Desc: { en: "Deep understanding of Safety Stock calculations, Economic Order Quantity (EOQ), and Reorder Point (ROP) modeling.", zh: "深刻理解安全库存 (Safety Stock) 的计算逻辑、经济订货批量 (EOQ) 以及订货点 (ROP) 建模。" },
+  k2Title: { en: "S&OP Alignment", zh: "产销协同规划 (S&OP)" },
+  k2Desc: { en: "Balancing demand forecasts with supply constraints, and synchronizing with Marketing and Sales for New Product Launches.", zh: "能够平衡需求预测与供应限制，并在新产品发布阶段与营销和销售团队保持紧密同步。" },
+  k3Title: { en: "Supplier Risk & Performance Management", zh: "供应商风险与绩效管理" },
+  k3Desc: { en: "Strategies for mitigating lead-time volatility, monitoring vendor compliance, and evaluating MOQ trade-offs.", zh: "掌握缓解交货期波动、监控供应商合规性以及评估最小起订量 (MOQ) 权衡的综合策略。" },
+
   // 60-Day Matrix
   planTitle: { en: "The 90-Day Action Matrix", zh: "首发 90 天行动计划 (90-Day Matrix)" },
   planDesc: { en: "My structured plan to hit the ground running at Pacific Smoke. Core principle: Establish stable structures before pursuing speed.", zh: "我在 Pacific Smoke 快速产生价值的结构化入职计划。核心原则：在追求速度之前，优先建立稳定的数据与沟通结构。" },
@@ -66,17 +76,7 @@ const t = {
   plan60_3: { en: "Analyze vendor performance metrics to identify bottlenecks in lead times.", zh: "分析供应商绩效指标，找出交货期中的核心瓶颈并着手优化。" },
   plan90Title: { en: "Phase 3: Improve & Report (Days 61-90)", zh: "阶段三：持续迭代 (Days 61-90)" },
   plan90_1: { en: "Present the first comprehensive Vendor Compliance Report to the Supply Planning Manager.", zh: "向供应链计划经理提交第一份全面的《供应商合规与表现报告》。" },
-  plan90_2: { en: "Coordinate inventory plans for upcoming New Product Launches (NPL) aligning supply with demand.", zh: "统筹即将到来的新产品发布 (NPL) 的前置库存计划，确保供需完美平衡。" },
-
-  // Knowledge Capabilities
-  knowledgeTitle: { en: "Supply Planning Framework & Methodologies", zh: "供应链规划知识体系与方法论" },
-  knowledgeDesc: { en: "Beyond my hands-on experience, I have built a solid theoretical foundation in modern supply planning methodologies.", zh: "在丰富的实操经验之外，我也构建了扎实的现代供应链规划与库存管理的知识体系。" },
-  k1Title: { en: "Inventory Strategy & Optimization", zh: "库存战略与优化" },
-  k1Desc: { en: "Deep understanding of Safety Stock calculations, Economic Order Quantity (EOQ), and Reorder Point (ROP) modeling.", zh: "深刻理解安全库存 (Safety Stock) 的计算逻辑、经济订货批量 (EOQ) 以及订货点 (ROP) 建模。" },
-  k2Title: { en: "S&OP Alignment", zh: "产销协同规划 (S&OP)" },
-  k2Desc: { en: "Balancing demand forecasts with supply constraints, and synchronizing with Marketing and Sales for New Product Launches.", zh: "能够平衡需求预测与供应限制，并在新产品发布阶段与营销和销售团队保持紧密同步。" },
-  k3Title: { en: "Supplier Risk & Performance Management", zh: "供应商风险与绩效管理" },
-  k3Desc: { en: "Strategies for mitigating lead-time volatility, monitoring vendor compliance, and evaluating MOQ trade-offs.", zh: "掌握缓解交货期波动、监控供应商合规性以及评估最小起订量 (MOQ) 权衡的综合策略。" }
+  plan90_2: { en: "Coordinate inventory plans for upcoming New Product Launches (NPL) aligning supply with demand.", zh: "统筹即将到来的新产品发布 (NPL) 的前置库存计划，确保供需完美平衡。" }
 };
 
 function App() {
@@ -87,7 +87,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-dark selection:bg-brand-accent selection:text-white pb-24 font-sans text-brand-text/90">
+    <div className="min-h-screen bg-brand-dark selection:bg-brand-accent selection:text-white pb-0 font-sans text-brand-text/90">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-brand-dark/90 backdrop-blur-md z-50 border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -249,64 +249,8 @@ function App() {
         </div>
       </section>
 
-      {/* 90-Day Matrix */}
-      <section className="py-24 px-6 max-w-5xl mx-auto">
-        <FadeIn>
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.planTitle[lang]}</h2>
-            <p className="text-brand-muted max-w-2xl mx-auto text-lg">{t.planDesc[lang]}</p>
-          </div>
-        </FadeIn>
-
-        <div className="space-y-6">
-          <FadeIn delay={0.1}>
-            <div className="flex flex-col md:flex-row gap-6 relative group">
-              <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
-                <h3 className="text-xl font-bold text-brand-accent">{t.plan30Title[lang]}</h3>
-              </div>
-              <div className="bg-brand-card border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
-                <ul className="space-y-4 text-brand-muted">
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_1[lang]}</span></li>
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_2[lang]}</span></li>
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_3[lang]}</span></li>
-                </ul>
-              </div>
-            </div>
-          </FadeIn>
-          
-          <FadeIn delay={0.2}>
-            <div className="flex flex-col md:flex-row gap-6 relative group">
-              <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
-                <h3 className="text-xl font-bold text-brand-accent">{t.plan60Title[lang]}</h3>
-              </div>
-              <div className="bg-brand-card border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
-                <ul className="space-y-4 text-brand-muted">
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_1[lang]}</span></li>
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_2[lang]}</span></li>
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_3[lang]}</span></li>
-                </ul>
-              </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            <div className="flex flex-col md:flex-row gap-6 relative group">
-              <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
-                <h3 className="text-xl font-bold text-brand-accent">{t.plan90Title[lang]}</h3>
-              </div>
-              <div className="bg-brand-card border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
-                <ul className="space-y-4 text-brand-muted">
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_1[lang]}</span></li>
-                  <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_2[lang]}</span></li>
-                </ul>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Knowledge Section (Replaced LinkedIn courses) */}
-      <section className="py-24 px-6 bg-brand-card/50 border-t border-white/5">
+      {/* Knowledge Section (Moved up) */}
+      <section className="py-24 px-6 max-w-6xl mx-auto">
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t.knowledgeTitle[lang]}</h2>
@@ -315,7 +259,7 @@ function App() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6">
             <FadeIn delay={0.1}>
               <div className="bg-brand-card p-8 rounded-3xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-lg hover:shadow-brand-accent/10 h-full">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
@@ -345,6 +289,64 @@ function App() {
             </FadeIn>
           </div>
         </FadeIn>
+      </section>
+
+      {/* 90-Day Matrix (Moved to bottom) */}
+      <section className="py-24 px-6 bg-brand-card/50 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <FadeIn>
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.planTitle[lang]}</h2>
+              <p className="text-brand-muted max-w-2xl mx-auto text-lg">{t.planDesc[lang]}</p>
+            </div>
+          </FadeIn>
+
+          <div className="space-y-6">
+            <FadeIn delay={0.1}>
+              <div className="flex flex-col md:flex-row gap-6 relative group">
+                <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
+                  <h3 className="text-xl font-bold text-brand-accent">{t.plan30Title[lang]}</h3>
+                </div>
+                <div className="bg-brand-dark border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
+                  <ul className="space-y-4 text-brand-muted">
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_1[lang]}</span></li>
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_2[lang]}</span></li>
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_3[lang]}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </FadeIn>
+            
+            <FadeIn delay={0.2}>
+              <div className="flex flex-col md:flex-row gap-6 relative group">
+                <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
+                  <h3 className="text-xl font-bold text-brand-accent">{t.plan60Title[lang]}</h3>
+                </div>
+                <div className="bg-brand-dark border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
+                  <ul className="space-y-4 text-brand-muted">
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_1[lang]}</span></li>
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_2[lang]}</span></li>
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_3[lang]}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col md:flex-row gap-6 relative group">
+                <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
+                  <h3 className="text-xl font-bold text-brand-accent">{t.plan90Title[lang]}</h3>
+                </div>
+                <div className="bg-brand-dark border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
+                  <ul className="space-y-4 text-brand-muted">
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_1[lang]}</span></li>
+                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_2[lang]}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
       </section>
 
     </div>
