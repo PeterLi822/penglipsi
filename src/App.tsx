@@ -43,7 +43,7 @@ const t = {
   trait4Title: { en: "Empathetic Communication", zh: "内外协同的共情沟通" },
   trait4Desc: { en: "Extremely sociable and cooperative. Excels at finding the balance of efficiency and cost when coordinating across internal teams and external vendors.", zh: "在具备专业双语能力之上，更注重“利益换位”思考机制。善于在资方期望、跨文化供应商之间寻求高效、低耗的平衡沟通节点。" },
 
-  // Knowledge Blueprint
+  // Blueprint Data
   knowledgeTitle: { en: "The Core Competency Blueprint", zh: "核心能力与知识体系蓝图" },
   knowledgeDesc: { en: "A structured framework bridging theoretical planning methodologies with my hands-on operations and systems integration expertise.", zh: "将系统的供应链计划理论（如需求预测框架）与我扎实的一线运营及系统架构经验相融合的底层蓝图。" },
   hubTitle: { en: "Data Control Tower (WMS/ERP)", zh: "系统底层与数据控制塔" },
@@ -57,9 +57,10 @@ const t = {
 
   // Interactive 2L-5P Interactive Section
   interactiveTitle: { en: "The '2L-5P' Standard Operating Procedure", zh: "全能操作系统：2L-5P「两锁定·五保证」法则" },
-  interactiveDesc: { en: "My universal problem-solving framework. Select a scenario below to see how I apply this methodology across External Vendor relations and Internal Operations.", zh: "我个人的底层操作系统。无论是对外的供应商博弈，还是对内的产销协同，我均以这 7 个标准化步骤击破难点。请点击下方场景查看应用细节：" },
-  externalTab: { en: "EXTERNAL / OUTBOUND", zh: "对外协同 (External)" },
-  internalTab: { en: "INTERNAL / INBOUND", zh: "对内协同 (Internal)" },
+  interactiveDesc: { en: "My universal problem-solving framework. The default view shows my core Supply Planner baseline. Click the sub-titles below to drill down into specific scenarios.", zh: "这是我驾驭 Supply Planner 全盘工作的底层操作系统。默认状态展示了我的核心常规工作基线；请点击下方的小标题，查看我在特定项目场景下的精准发力点。" },
+  externalTitle: { en: "EXTERNAL COLLABORATION", zh: "对外协同 (EXTERNAL)" },
+  internalTitle: { en: "INTERNAL COLLABORATION", zh: "对内协同 (INTERNAL)" },
+  
   lblLock1: { en: "Lock Stakeholders", zh: "锁定人群" },
   lblLock2: { en: "Lock Goals", zh: "锁定目标" },
   lblP1: { en: "Commitment", zh: "有承诺" },
@@ -68,47 +69,65 @@ const t = {
   lblP4: { en: "Incentive", zh: "有激励" },
   lblP5: { en: "Evaluation", zh: "有追踪" },
 
-  // Matrix Data
+  // Matrix Data Split
   matrix: {
-    vendor: {
-      btnTitle: { en: "Vendor Management", zh: "供应商协同管控" },
-      l1: { en: "Identify core factories, forwarders, and customs brokers.", zh: "锁定核心代工厂、货代及清关团队，明确外部责任人。" },
-      l2: { en: "Define strict lead times, MOQ thresholds, and unit cost targets.", zh: "锁定目标交期、最小起订量 (MOQ) 及降本指标红线。" },
-      p1: { en: "Negotiate hard Service Level Agreements (SLAs) with China suppliers.", zh: "与海外(中国)供应商签署并强调严苛的服务水平承诺(SLA)。" },
-      p2: { en: "Provide 12-month rolling forecasts so factories can secure raw materials.", zh: "向工厂提供 12 个月滚动预测数据，支持其提前备料。" },
-      p3: { en: "Conduct Quarterly Business Reviews (QBR) to discuss vendor performance.", zh: "每季度举行供应商业务回顾会，沟通风险与改善点。" },
-      p4: { en: "Reward top-performing vendors with larger PO allocations.", zh: "用采购份额倾斜来奖励合规率高、交期稳的供应商。" },
-      p5: { en: "Generate Monthly Vendor Compliance Reports as required by management.", zh: "严格按 JD 要求，每月输出《供应商合规与表现报告》。" }
+    left: {
+      default: {
+        l1: { en: "Lock international suppliers, forwarders, and carriers.", zh: "明确外部对接节点：海外代工厂、货代及清关代理。" },
+        l2: { en: "Lock lead times, MOQ, and inbound logistics costs.", zh: "锁定外部红线：目标交期、MOQ 约束与跨境物流成本。" },
+        p1: { en: "Demand firm lead time and capacity commitments from vendors.", zh: "承诺是双向的：对外部，需要中国供应商提供死硬的交期承诺。" },
+        p2: { en: "Provide rolling forecasts to factories to secure raw materials.", zh: "向下游供应商输出长期滚动预测，支撑其大宗备料。" },
+        p3: { en: "Discuss lead time and customs delay risks upfront.", zh: "事前会议：把所有的海外 Lead time 延误、清关延误风险摆在桌面上谈透。" },
+        p4: { en: "Use PO allocation as an incentive for compliant vendors.", zh: "用采购订单 (PO) 份额倾斜来激励按时交货率高的优质供应商。" },
+        p5: { en: "Expedite POs or delay shipments based on demand shifts.", zh: "动态纠偏：一旦需求偏离预测，立即通过加急 PO 或推迟海外发货来纠偏。" }
+      },
+      vendor: {
+        l1: { en: "Identify core factories and critical inbound forwarders.", zh: "【供应商管理】锁定核心代工厂及关键入境货代团队。" },
+        l2: { en: "Define strict lead times, MOQ thresholds, and unit cost targets.", zh: "【供应商管理】锁定目标交期、最小起订量 (MOQ) 阶梯及降本指标。" },
+        p1: { en: "Negotiate hard Service Level Agreements (SLAs) with China suppliers.", zh: "【供应商管理】与海外(中国)供应商签署并强调严苛的服务水平承诺(SLA)。" },
+        p2: { en: "Ensure vendor portals and EDI/NetSuite integrations are maintained.", zh: "【供应商管理】确保供应商信息库与 NetSuite 系统的物料映射准确无误。" },
+        p3: { en: "Conduct Quarterly Business Reviews (QBR) to discuss vendor performance.", zh: "【供应商管理】每季度举行供应商业务回顾会(QBR)，深度沟通风险与改善点。" },
+        p4: { en: "Reward top-performing vendors with larger PO allocations.", zh: "【供应商管理】用采购份额的大幅倾斜，激励合规率高、交期稳的头部供应商。" },
+        p5: { en: "Generate Monthly Vendor Compliance Reports as required by management.", zh: "【供应商管理】严格按 JD 要求，每月输出详尽的《供应商合规与表现报告》。" }
+      },
+      customer: {
+        l1: { en: "Identify key B2B accounts, wholesale distributors, and Sales Reps.", zh: "【客户支持】锁定核心 B2B 大客户、区域分销商及内部对应销售人员。" },
+        l2: { en: "Establish Target Order Fill Rates (OTIF) and minimum service levels.", zh: "【客户支持】锁定核心大客户的订单履约率 (OTIF) 红线。" },
+        p1: { en: "Guarantee VIP supply allocation commitments during shortage periods.", zh: "【客户支持】在全网缺货的危机时期，对头部 VIP 客户做出硬性保供承诺。" },
+        p2: { en: "Provide transparent ETAs and inbound visibility to the sales team.", zh: "【客户支持】向业务前端提供在途物资的清晰视野与预计到港时间(ETA)。" },
+        p3: { en: "Hold Joint Business Planning (JBP) sessions before peak seasons.", zh: "【客户支持】在黑五等旺季来临前，参与大客户联合商业计划(JBP)制定。" },
+        p4: { en: "Minimize punitive stockout penalties from critical retail partners.", zh: "【客户支持】通过前置精准调拨，帮助公司规避核心零售商的巨额断货罚款。" },
+        p5: { en: "Track daily backorder statuses and customer fulfillment ratios.", zh: "【客户支持】每日高频追踪 Backorder (欠货) 状态与实际订单满足率。" }
+      }
     },
-    customer: {
-      btnTitle: { en: "Customer / Channel", zh: "客户与渠道支持" },
-      l1: { en: "Identify key B2B accounts, wholesale distributors, and Sales Reps.", zh: "锁定核心 B2B 大客户、区域分销商及内部对应销售人员。" },
-      l2: { en: "Establish Target Order Fill Rates (OTIF) and minimum service levels.", zh: "锁定客户订单履约率 (OTIF) 红线及现货满足率基准。" },
-      p1: { en: "Guarantee VIP supply allocation commitments during shortage periods.", zh: "在全网缺货时，对头部 VIP 客户做出硬性保供承诺。" },
-      p2: { en: "Provide transparent ETAs and inbound visibility to the sales team.", zh: "向前端团队提供在途物资的清晰视野与预计到港时间(ETA)。" },
-      p3: { en: "Hold Joint Business Planning (JBP) sessions before peak seasons.", zh: "在旺季来临前，与大客户代表进行联合商业计划制定。" },
-      p4: { en: "Minimize punitive stockout penalties from critical retail partners.", zh: "通过精准补货，帮助公司规避核心渠道的断货罚款损失。" },
-      p5: { en: "Track daily backorder statuses and customer fulfillment ratios.", zh: "每日高频追踪 Backorder (欠货) 状态与实际订单满足率。" }
-    },
-    sop: {
-      btnTitle: { en: "Routine S&OP", zh: "日常产销协同 (S&OP)" },
-      l1: { en: "Align Sales, Marketing, Finance, and Warehouse Operations.", zh: "对齐并打通跨部门团队：销售、营销、财务与库房运营。" },
-      l2: { en: "Align on monthly fill rate targets vs. working capital limits.", zh: "锁定月度现货率目标，同时坚守流动资金占用底线。" },
-      p1: { en: "Obtain firm volume forecasts from Sales to drive procurement.", zh: "获取销售端确定的销量预测，严禁朝令夕改。" },
-      p2: { en: "Maintain clean NetSuite master data (Safety stock, Lead times).", zh: "持续维护准确的 NetSuite 主数据，保障系统自动排程无误。" },
-      p3: { en: "Lead bi-weekly replenishment review meetings to assess risks.", zh: "主导双周维度的补货复盘会议，排查爆仓与断货风险。" },
-      p4: { en: "Share obsolescence cost reports so Sales shares inventory accountability.", zh: "公开呆滞库存成本，倒逼销售端共担清理死库存的责任。" },
-      p5: { en: "Daily tracking of depletion rates vs. forecast to mitigate excess.", zh: "每日比对实际消耗与预测值，动态调整 PO 踩刹车或油门。" }
-    },
-    npl: {
-      btnTitle: { en: "New Product Launch", zh: "新品发布项目 (NPL)" },
-      l1: { en: "Identify NPL Project Managers, Product Marketing, and Logistics.", zh: "明确 NPL 项目经理、产品营销及物流实施人员的权责边界。" },
-      l2: { en: "Establish an unshakeable Launch Date and initial launch volumes.", zh: "锁定不可动摇的首发日期，及精确的首批铺货体量预测。" },
-      p1: { en: "Secure firm production commitments and fast-track shipping from vendors.", zh: "确保海外工厂的首批产能倾斜，及货代的空运/快船承运承诺。" },
-      p2: { en: "Ensure physical warehouse space is allocated and SKUs are active in ERP.", zh: "确保库房物理储存空间就绪，且 ERP 允许新品直接收货入库。" },
-      p3: { en: "Conduct Stage-Gate alignment meetings to clear all operational blind spots.", zh: "举行严格的 Stage-Gate 流程核对会，消除执行层面的信息盲区。" },
-      p4: { en: "Establish a shared cross-functional KPI for 'On-Time Launch Rate'.", zh: "设立跨部门共享的'准时发售率' KPI，打破部门各自为战。" },
-      p5: { en: "High-frequency tracking of post-launch velocity to pivot follow-up POs.", zh: "发布首周高频追踪动销率，根据真实热度秒级调整第二波补货。" }
+    right: {
+      default: {
+        l1: { en: "Lock internal matrix: Sales, Marketing, Operations, Finance.", zh: "锁定内部对接矩阵：销售要销量、市场要节点、运营要仓容、财务要预算。" },
+        l2: { en: "Lock business red lines: 99% Fill Rate vs. reducing obsolescence.", zh: "锁定业务红线：这批货的目标是保 99% 现货率，还是为了消化呆滞库存？" },
+        p1: { en: "Demand firm volume forecast commitments from Sales.", zh: "承诺是双向的：对内部，需要销售团队对他们给出的销量预测 (Forecast) 做出承诺。" },
+        p2: { en: "Maintain NetSuite parameters (Lead time, Safety stock).", zh: "核心支持动作：日常深度维护 NetSuite 的各项底层参数，让系统跑出准确数据。" },
+        p3: { en: "Run bi-weekly replenishment meetings & NPL kick-offs.", zh: "内部排雷：对于新品是项目 Kick-off 会；对于日常是双周补货沟通会。" },
+        p4: { en: "Share Obsolescence Reports to drive cross-functional accountability.", zh: "数据透明度：输出《呆滞库存报告》暴露库存成本，倒逼销售主推老品打破背锅壁垒。" },
+        p5: { en: "High-frequency tracking of depletion rates.", zh: "事后追踪重于事前预测：高频追踪实际消耗率 (Depletion rate) 动态评估。" }
+      },
+      sop: {
+        l1: { en: "Align Sales, Marketing, Finance, and Warehouse Operations.", zh: "【日常 S&OP】对齐并打通跨部门团队：销售、营销、财务与库房运营。" },
+        l2: { en: "Align on monthly fill rate targets vs. working capital limits.", zh: "【日常 S&OP】锁定月度现货率目标，同时坚守流动资金占用底线。" },
+        p1: { en: "Obtain firm volume forecasts from Sales to drive procurement.", zh: "【日常 S&OP】获取销售端确定的销量预测，严禁朝令夕改。" },
+        p2: { en: "Maintain clean NetSuite master data (Safety stock, Lead times).", zh: "【日常 S&OP】持续维护准确的 NetSuite 主数据，保障系统自动排程无误。" },
+        p3: { en: "Lead bi-weekly replenishment review meetings to assess risks.", zh: "【日常 S&OP】主导双周维度的补货复盘会议，排查爆仓与断货风险。" },
+        p4: { en: "Share obsolescence cost reports so Sales shares inventory accountability.", zh: "【日常 S&OP】公开呆滞库存成本，倒逼销售端共担清理死库存的责任。" },
+        p5: { en: "Daily tracking of depletion rates vs. forecast to mitigate excess.", zh: "【日常 S&OP】每日比对实际消耗与预测值，动态调整 PO 踩刹车或油门。" }
+      },
+      npl: {
+        l1: { en: "Identify NPL Project Managers, Product Marketing, and Logistics.", zh: "【新品 NPL】明确 NPL 项目经理、产品营销及物流实施人员的权责边界。" },
+        l2: { en: "Establish an unshakeable Launch Date and initial launch volumes.", zh: "【新品 NPL】锁定不可动摇的首发日期，及精确的首批铺货体量预测。" },
+        p1: { en: "Secure firm sales targets and fast-track shipping budgets.", zh: "【新品 NPL】确保前端销售签署硬性提货目标，及财务批复空运加急预算。" },
+        p2: { en: "Ensure physical warehouse space is allocated and SKUs are active in ERP.", zh: "【新品 NPL】确保库房物理储存空间腾出，且 ERP 允许新品无缝直通入库。" },
+        p3: { en: "Conduct Stage-Gate alignment meetings to clear all operational blind spots.", zh: "【新品 NPL】主导严格的 Stage-Gate 流程核对会，消除执行层面的所有盲区。" },
+        p4: { en: "Establish a shared cross-functional KPI for 'On-Time Launch Rate'.", zh: "【新品 NPL】设立跨部门共享的'准时发售率' KPI，强行打破部门各自为战。" },
+        p5: { en: "High-frequency tracking of post-launch velocity to pivot follow-up POs.", zh: "【新品 NPL】发布首周高频追踪动销率，根据真实热度秒级调整第二波补货节奏。" }
+      }
     }
   },
 
@@ -128,17 +147,28 @@ const t = {
   plan90_2: { en: "Coordinate inventory plans for upcoming New Product Launches (NPL) aligning supply with demand.", zh: "统筹即将到来的新产品发布 (NPL) 的前置库存计划，确保供需完美平衡。" }
 };
 
-type ScenarioType = 'vendor' | 'customer' | 'sop' | 'npl';
+type LeftScenario = 'default' | 'vendor' | 'customer';
+type RightScenario = 'default' | 'sop' | 'npl';
 
 function App() {
   const [lang, setLang] = useState<'en' | 'zh'>('en');
-  const [activeScenario, setActiveScenario] = useState<ScenarioType>('sop');
+  const [activeLeft, setActiveLeft] = useState<LeftScenario>('default');
+  const [activeRight, setActiveRight] = useState<RightScenario>('default');
 
   const toggleLang = () => {
     setLang(prev => prev === 'en' ? 'zh' : 'en');
   };
 
-  const activeData = t.matrix[activeScenario];
+  const handleLeftClick = (mode: LeftScenario) => {
+    setActiveLeft(prev => prev === mode ? 'default' : mode);
+  };
+
+  const handleRightClick = (mode: RightScenario) => {
+    setActiveRight(prev => prev === mode ? 'default' : mode);
+  };
+
+  const leftData = t.matrix.left[activeLeft];
+  const rightData = t.matrix.right[activeRight];
 
   return (
     <div className="min-h-screen bg-brand-dark selection:bg-brand-accent selection:text-white pb-0 font-sans text-brand-text/90">
@@ -214,55 +244,6 @@ function App() {
         </div>
       </section>
 
-      {/* The POP 7.0 Personality Matrix */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.traitSectionTitle[lang]}</h2>
-            <p className="text-brand-muted font-medium bg-white/5 inline-block px-4 py-1.5 rounded-full border border-white/10">{t.traitSectionDesc[lang]}</p>
-          </div>
-        </FadeIn>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <FadeIn delay={0.1}>
-            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
-                <Target size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">{t.trait1Title[lang]}</h3>
-              <p className="text-brand-muted text-sm leading-relaxed">{t.trait1Desc[lang]}</p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
-                <BarChart2 size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">{t.trait2Title[lang]}</h3>
-              <p className="text-brand-muted text-sm leading-relaxed">{t.trait2Desc[lang]}</p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
-                <ShieldAlert size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">{t.trait3Title[lang]}</h3>
-              <p className="text-brand-muted text-sm leading-relaxed">{t.trait3Desc[lang]}</p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.4}>
-            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
-                <MessageSquare size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">{t.trait4Title[lang]}</h3>
-              <p className="text-brand-muted text-sm leading-relaxed">{t.trait4Desc[lang]}</p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Blueprint Diagram Section */}
       <section className="pt-24 pb-12 px-6 max-w-7xl mx-auto">
         <FadeIn>
@@ -321,156 +302,256 @@ function App() {
         </FadeIn>
       </section>
 
-      {/* Interactive 2L-5P Matrix (The Fishbone / Vertical Tree) */}
-      <section className="py-12 px-6 bg-brand-card/30 border-y border-white/5 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto relative z-10">
+      {/* Interactive 2L-5P Matrix (Symmetric Timeline) */}
+      <section className="py-24 px-6 bg-brand-card/30 border-y border-white/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 flex items-center justify-center gap-4">
                 <Target className="text-brand-accent" size={36} />
                 {t.interactiveTitle[lang]}
               </h2>
-              <p className="text-brand-muted max-w-2xl mx-auto text-lg">{t.interactiveDesc[lang]}</p>
+              <p className="text-brand-muted max-w-3xl mx-auto text-lg leading-relaxed">{t.interactiveDesc[lang]}</p>
             </div>
             
+            {/* Super Large Headers for EXTERNAL and INTERNAL */}
+            <div className="grid md:grid-cols-2 gap-8 mb-6 text-center">
+              <div>
+                <h3 className="text-3xl font-extrabold text-blue-400 tracking-wider mb-2">{t.externalTitle[lang]}</h3>
+                <div className="h-1 w-24 bg-blue-500/50 mx-auto rounded-full"></div>
+              </div>
+              <div>
+                <h3 className="text-3xl font-extrabold text-brand-accent tracking-wider mb-2">{t.internalTitle[lang]}</h3>
+                <div className="h-1 w-24 bg-brand-accent/50 mx-auto rounded-full"></div>
+              </div>
+            </div>
+
             {/* Control Panel: Left (External) vs Right (Internal) */}
-            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-16 bg-brand-dark p-2 rounded-2xl border border-white/10">
-              
-              {/* External Group */}
-              <div className="p-4 rounded-xl border border-dashed border-white/10 relative">
-                <div className="absolute -top-3 left-6 bg-brand-dark px-2 text-xs font-bold text-brand-muted tracking-widest">{t.externalTab[lang]}</div>
-                <div className="flex flex-col sm:flex-row gap-2 mt-2">
-                  <button 
-                    onClick={() => setActiveScenario('vendor')}
-                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'vendor' ? 'bg-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-white/10 hover:text-white'}`}
-                  >
-                    <Truck size={18} /> {t.matrix.vendor.btnTitle[lang]}
-                  </button>
-                  <button 
-                    onClick={() => setActiveScenario('customer')}
-                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'customer' ? 'bg-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-white/10 hover:text-white'}`}
-                  >
-                    <Users size={18} /> {t.matrix.customer.btnTitle[lang]}
-                  </button>
-                </div>
-              </div>
-
-              {/* Internal Group */}
-              <div className="p-4 rounded-xl border border-dashed border-brand-accent/30 relative">
-                <div className="absolute -top-3 left-6 bg-brand-dark px-2 text-xs font-bold text-brand-accent tracking-widest">{t.internalTab[lang]}</div>
-                <div className="flex flex-col sm:flex-row gap-2 mt-2">
-                  <button 
-                    onClick={() => setActiveScenario('sop')}
-                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'sop' ? 'bg-brand-accent text-white shadow-[0_0_15px_rgba(239,68,68,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-brand-accent/20 hover:text-brand-accent'}`}
-                  >
-                    <Briefcase size={18} /> {t.matrix.sop.btnTitle[lang]}
-                  </button>
-                  <button 
-                    onClick={() => setActiveScenario('npl')}
-                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'npl' ? 'bg-brand-accent text-white shadow-[0_0_15px_rgba(239,68,68,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-brand-accent/20 hover:text-brand-accent'}`}
-                  >
-                    <TrendingUp size={18} /> {t.matrix.npl.btnTitle[lang]}
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Vertical Fishbone Timeline */}
-            <div className="max-w-3xl mx-auto relative pl-8 md:pl-0">
-              {/* Central Spine Line */}
-              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-accent via-blue-500 to-transparent -translate-x-1/2"></div>
-              
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeScenario}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
+              {/* External Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button 
+                  onClick={() => handleLeftClick('vendor')}
+                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeLeft === 'vendor' ? 'bg-blue-500/20 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-blue-400/50 hover:text-white'}`}
                 >
-                  
-                  {/* Node: Lock 1 */}
-                  <div className="relative flex items-center md:justify-end">
-                    <div className="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-brand-accent -translate-x-1/2 z-10 flex items-center justify-center"><Lock size={10} className="text-brand-accent" /></div>
-                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
-                      <div className="bg-brand-dark border border-white/10 p-5 rounded-2xl shadow-lg relative group hover:border-brand-accent/50 transition-all">
-                        <div className="text-xs font-bold text-brand-accent mb-1 tracking-wider uppercase">{t.lblLock1[lang]}</div>
-                        <div className="text-white font-medium">{activeData.l1[lang]}</div>
-                      </div>
-                    </div>
-                  </div>
+                  <Truck size={20} /> Vendor Management
+                </button>
+                <button 
+                  onClick={() => handleLeftClick('customer')}
+                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeLeft === 'customer' ? 'bg-blue-500/20 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-blue-400/50 hover:text-white'}`}
+                >
+                  <Users size={20} /> Customer / Channel
+                </button>
+              </div>
 
-                  {/* Node: Lock 2 */}
-                  <div className="relative flex items-center md:justify-start">
-                    <div className="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-brand-accent -translate-x-1/2 z-10 flex items-center justify-center"><Lock size={10} className="text-brand-accent" /></div>
-                    <div className="ml-10 md:ml-0 md:pl-12 md:w-1/2 text-left">
-                      <div className="bg-brand-dark border border-white/10 p-5 rounded-2xl shadow-lg relative group hover:border-brand-accent/50 transition-all">
-                        <div className="text-xs font-bold text-brand-accent mb-1 tracking-wider uppercase">{t.lblLock2[lang]}</div>
-                        <div className="text-white font-medium">{activeData.l2[lang]}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Node: Pillar 1 */}
-                  <div className="relative flex items-center md:justify-end mt-12">
-                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
-                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
-                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
-                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP1[lang]}</div>
-                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p1[lang]}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Node: Pillar 2 */}
-                  <div className="relative flex items-center md:justify-start">
-                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
-                    <div className="ml-10 md:ml-0 md:pl-12 md:w-1/2 text-left">
-                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
-                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP2[lang]}</div>
-                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p2[lang]}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Node: Pillar 3 */}
-                  <div className="relative flex items-center md:justify-end">
-                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
-                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
-                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
-                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP3[lang]}</div>
-                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p3[lang]}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Node: Pillar 4 */}
-                  <div className="relative flex items-center md:justify-start">
-                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
-                    <div className="ml-10 md:ml-0 md:pl-12 md:w-1/2 text-left">
-                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
-                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP4[lang]}</div>
-                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p4[lang]}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Node: Pillar 5 */}
-                  <div className="relative flex items-center md:justify-end">
-                    <div className="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-emerald-500 -translate-x-1/2 z-10 flex items-center justify-center"><CheckCircle size={10} className="text-emerald-500" /></div>
-                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
-                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-lg hover:border-emerald-500/50 transition-all">
-                        <div className="text-xs font-bold text-emerald-500 mb-1 tracking-wider uppercase">{t.lblP5[lang]}</div>
-                        <div className="text-brand-muted text-sm font-medium leading-relaxed">{activeData.p5[lang]}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                </motion.div>
-              </AnimatePresence>
-
+              {/* Internal Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button 
+                  onClick={() => handleRightClick('sop')}
+                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeRight === 'sop' ? 'bg-brand-accent/20 border-brand-accent text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-accent/50 hover:text-white'}`}
+                >
+                  <Briefcase size={20} /> Routine S&OP
+                </button>
+                <button 
+                  onClick={() => handleRightClick('npl')}
+                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeRight === 'npl' ? 'bg-brand-accent/20 border-brand-accent text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-accent/50 hover:text-white'}`}
+                >
+                  <TrendingUp size={20} /> New Product Launch
+                </button>
+              </div>
             </div>
+
+            {/* Vertical Symmetric Fishbone Timeline */}
+            <div className="max-w-6xl mx-auto relative hidden md:block">
+              {/* Central Spine Line */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-brand-accent -translate-x-1/2 opacity-50 rounded-full"></div>
+              
+              <div className="space-y-12">
+                
+                {/* Node: Lock 1 */}
+                <div className="relative flex items-center justify-center w-full group">
+                  <div className="absolute left-1/2 w-10 h-10 rounded-full bg-brand-dark border-4 border-purple-500 -translate-x-1/2 z-10 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.5)]">
+                    <Lock size={16} className="text-purple-400" />
+                  </div>
+                  <div className="w-1/2 pr-16 text-right">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeLeft !== 'default' ? 'bg-blue-500/10 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.1)]' : 'bg-brand-dark border-white/10'}`}>
+                        <div className="text-xs font-bold text-blue-400 mb-2 tracking-widest uppercase">{t.lblLock1[lang]} (External)</div>
+                        <div className={`font-medium ${activeLeft !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{leftData.l1[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  <div className="w-1/2 pl-16 text-left">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeRight !== 'default' ? 'bg-brand-accent/10 border-brand-accent/50 shadow-[0_0_20px_rgba(239,68,68,0.1)]' : 'bg-brand-dark border-white/10'}`}>
+                        <div className="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">{t.lblLock1[lang]} (Internal)</div>
+                        <div className={`font-medium ${activeRight !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{rightData.l1[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Node: Lock 2 */}
+                <div className="relative flex items-center justify-center w-full group">
+                  <div className="absolute left-1/2 w-10 h-10 rounded-full bg-brand-dark border-4 border-purple-500 -translate-x-1/2 z-10 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.5)]">
+                    <Lock size={16} className="text-purple-400" />
+                  </div>
+                  <div className="w-1/2 pr-16 text-right">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeLeft !== 'default' ? 'bg-blue-500/10 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.1)]' : 'bg-brand-dark border-white/10'}`}>
+                        <div className="text-xs font-bold text-blue-400 mb-2 tracking-widest uppercase">{t.lblLock2[lang]} (External)</div>
+                        <div className={`font-medium ${activeLeft !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{leftData.l2[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  <div className="w-1/2 pl-16 text-left">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeRight !== 'default' ? 'bg-brand-accent/10 border-brand-accent/50 shadow-[0_0_20px_rgba(239,68,68,0.1)]' : 'bg-brand-dark border-white/10'}`}>
+                        <div className="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">{t.lblLock2[lang]} (Internal)</div>
+                        <div className={`font-medium ${activeRight !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{rightData.l2[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Node: Pillar 1 */}
+                <div className="relative flex items-center justify-center w-full">
+                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
+                  <div className="w-1/2 pr-16 text-right">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP1[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p1[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  <div className="w-1/2 pl-16 text-left">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP1[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p1[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Node: Pillar 2 */}
+                <div className="relative flex items-center justify-center w-full">
+                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
+                  <div className="w-1/2 pr-16 text-right">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP2[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p2[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  <div className="w-1/2 pl-16 text-left">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP2[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p2[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Node: Pillar 3 */}
+                <div className="relative flex items-center justify-center w-full">
+                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
+                  <div className="w-1/2 pr-16 text-right">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP3[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p3[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  <div className="w-1/2 pl-16 text-left">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP3[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p3[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Node: Pillar 4 */}
+                <div className="relative flex items-center justify-center w-full">
+                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
+                  <div className="w-1/2 pr-16 text-right">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP4[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p4[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  <div className="w-1/2 pl-16 text-left">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
+                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP4[lang]}</div>
+                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p4[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Node: Pillar 5 (End) */}
+                <div className="relative flex items-center justify-center w-full">
+                  <div className="absolute left-1/2 w-10 h-10 rounded-full bg-brand-dark border-4 border-emerald-500 -translate-x-1/2 z-10 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+                    <CheckCircle size={16} className="text-emerald-400" />
+                  </div>
+                  <div className="w-1/2 pr-16 text-right">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeLeft !== 'default' ? 'bg-blue-500/10 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.1)]' : 'bg-brand-dark border-emerald-500/30'}`}>
+                        <div className="text-xs font-bold text-emerald-400 mb-2 tracking-widest uppercase">{t.lblP5[lang]} (External)</div>
+                        <div className={`font-medium ${activeLeft !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{leftData.p5[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                  <div className="w-1/2 pl-16 text-left">
+                    <AnimatePresence mode="wait">
+                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeRight !== 'default' ? 'bg-brand-accent/10 border-brand-accent/50 shadow-[0_0_20px_rgba(239,68,68,0.1)]' : 'bg-brand-dark border-emerald-500/30'}`}>
+                        <div className="text-xs font-bold text-emerald-400 mb-2 tracking-widest uppercase">{t.lblP5[lang]} (Internal)</div>
+                        <div className={`font-medium ${activeRight !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{rightData.p5[lang]}</div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Mobile Fallback - Stacked */}
+            <div className="md:hidden space-y-12">
+              <div className="bg-brand-card/50 p-6 rounded-3xl border border-blue-500/30">
+                <h3 className="text-xl font-bold text-blue-400 mb-6">{t.externalTitle[lang]}</h3>
+                <div className="space-y-6">
+                  <div><span className="text-xs font-bold text-blue-400 uppercase tracking-widest">{t.lblLock1[lang]}</span><p className="mt-1 text-white">{leftData.l1[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-blue-400 uppercase tracking-widest">{t.lblLock2[lang]}</span><p className="mt-1 text-white">{leftData.l2[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP1[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p1[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP2[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p2[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP3[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p3[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP4[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p4[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">{t.lblP5[lang]}</span><p className="mt-1 text-white">{leftData.p5[lang]}</p></div>
+                </div>
+              </div>
+              <div className="bg-brand-card/50 p-6 rounded-3xl border border-brand-accent/30">
+                <h3 className="text-xl font-bold text-brand-accent mb-6">{t.internalTitle[lang]}</h3>
+                <div className="space-y-6">
+                  <div><span className="text-xs font-bold text-brand-accent uppercase tracking-widest">{t.lblLock1[lang]}</span><p className="mt-1 text-white">{rightData.l1[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-accent uppercase tracking-widest">{t.lblLock2[lang]}</span><p className="mt-1 text-white">{rightData.l2[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP1[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p1[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP2[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p2[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP3[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p3[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP4[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p4[lang]}</p></div>
+                  <div><span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">{t.lblP5[lang]}</span><p className="mt-1 text-white">{rightData.p5[lang]}</p></div>
+                </div>
+              </div>
+            </div>
+            
           </FadeIn>
         </div>
       </section>
