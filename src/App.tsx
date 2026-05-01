@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle, Users, Truck, Briefcase } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -43,54 +43,77 @@ const t = {
   trait4Title: { en: "Empathetic Communication", zh: "内外协同的共情沟通" },
   trait4Desc: { en: "Extremely sociable and cooperative. Excels at finding the balance of efficiency and cost when coordinating across internal teams and external vendors.", zh: "在具备专业双语能力之上，更注重“利益换位”思考机制。善于在资方期望、跨文化供应商之间寻求高效、低耗的平衡沟通节点。" },
 
-  // STAR Stories Section
-  starTitle: { en: "Experience Mapping (STAR Framework)", zh: "核心经历映射 (STAR 框架)" },
-  starDesc: { en: "How my operational background solves actual supply planning challenges required in the JD.", zh: "我的实操背景如何解决 JD 中要求的实际供应链计划挑战。" },
-  star1Context: { en: "Data Integrity & NetSuite Alignment (The Challenge)", zh: "数据准确性与 ERP 协同 (挑战)" },
-  star1Action: { en: "Faced with severe inventory inaccuracies, I mapped out the existing flaws and led the implementation of a WMS. I established strict cycle counting protocols to align physical stock with system data.", zh: "面对严重的库存数据不准，我梳理了现有缺陷，主导了 WMS 系统的实施，并建立了严格的周期盘点协议，以确保物理库存与系统数据完全一致。" },
-  star1Result: { en: "Result: Achieved high system-to-physical accuracy, providing a reliable data foundation for all future replenishment decisions (Matching JD: 'Ensure accuracy of master data').", zh: "结果：实现了极高的账物相符率，为所有后续的补货决策提供了绝对可靠的数据基础 (直接对标 JD: '确保主数据的准确性')。" },
-  star2Context: { en: "Replenishment Rhythms & Risk Management (The Action)", zh: "补货节奏把控与风险管理 (行动)" },
-  star2Action: { en: "By assessing floor capacity against incoming demand, I proactively identified risks of excess and shorts. I adjusted PO timings and negotiated directly with vendors to delay or expedite shipments.", zh: "通过比对仓库产能与需求预测，我主动识别了爆仓或短缺风险。我及时调整 PO 节奏，并直接与供应商交涉推迟或加急发货。" },
-  star2Result: { en: "Result: Prevented stockouts during peak seasons while avoiding warehousing overflow (Matching JD: 'Daily inventory assessments to determine shorts, risks, and excess').", zh: "结果：在旺季有效防止了断货，同时避免了不必要的仓库爆仓 (直接对标 JD: '进行每日库存评估，以确定短缺、风险和过剩')。" },
-
-  // Knowledge Blueprint (Diagram Layout)
+  // Knowledge Blueprint
   knowledgeTitle: { en: "The Core Competency Blueprint", zh: "核心能力与知识体系蓝图" },
   knowledgeDesc: { en: "A structured framework bridging theoretical planning methodologies with my hands-on operations and systems integration expertise.", zh: "将系统的供应链计划理论（如需求预测框架）与我扎实的一线运营及系统架构经验相融合的底层蓝图。" },
-  
   hubTitle: { en: "Data Control Tower (WMS/ERP)", zh: "系统底层与数据控制塔" },
-  hubDesc: { en: "The central hub. Ensuring 99.9% data integrity through strict cycle counts and system workflows to feed accurate master data into planning models.", zh: "中枢节点。通过主导系统实施与底层逻辑配置，确保极高的数据准确率，为所有预测与计划模型提供绝对可靠的基石。" },
-  
+  hubDesc: { en: "The central hub. Ensuring 99.9% data integrity through strict cycle counts to feed accurate master data into planning models.", zh: "中枢节点。通过主导系统实施，确保极高的数据准确率，为所有预测与计划模型提供绝对可靠的基石。" },
   upstreamTitle: { en: "Upstream: Supplier Management", zh: "上游：供应商协同与风险" },
   upstreamDesc: { en: "Mitigating lead-time volatility, monitoring compliance, and optimizing MOQ constraints through deep integration and communication.", zh: "控制交货期波动风险，监控供应商合规性，并通过无缝沟通优化最小起订量 (MOQ) 约束。" },
-  
   downstreamTitle: { en: "Downstream: S&OP & Demand", zh: "下游：需求预测与产销协同" },
-  downstreamDesc: { en: "Translating historical depletion data into forecasting frameworks. Synchronizing supply availability with Marketing NPLs (New Product Launches).", zh: "利用结构化框架进行需求预测 (Forecasting Framework)。确保供应链能力与销售推广及新产品发布 (NPL) 的节奏同频。" },
-  
+  downstreamDesc: { en: "Translating historical depletion data into forecasting frameworks. Synchronizing supply availability with Marketing NPLs.", zh: "利用结构化框架进行需求预测。确保供应链能力与销售推广及新产品发布 (NPL) 的节奏同频。" },
   coreTitle: { en: "Core: Inventory Optimization", zh: "核心：库存战略模型" },
-  coreDesc: { en: "Calculating Safety Stock, EOQ, and Reorder Points (ROP) to balance high service levels with minimal working capital tied up in excess.", zh: "精准运用安全库存、经济订货批量 (EOQ) 与订货点 (ROP) 模型，在保障高履约率与降低资金占用之间取得极致平衡。" },
+  coreDesc: { en: "Calculating Safety Stock, EOQ, and Reorder Points (ROP) to balance high service levels with minimal working capital tied up.", zh: "精准运用安全库存、EOQ 与订货点模型，在保障高履约率与降低资金占用之间取得极致平衡。" },
 
-  // 2L-5P NPL Framework
-  nplTitle: { en: "The '2L-5P' NPL Alignment Methodology", zh: "跨部门协同：新产品发布 (NPL) 「两锁定·五保证」法则" },
-  nplDesc: { en: "A proprietary methodology I use to bridge the gap between Sales ambitions and Supply Chain realities during New Product Launches (NPLs) and major promotions.", zh: "这是我用于新产品发布 (NPL) 和大型促销期间的实战方法论，旨在打破部门壁垒，无缝缝合“前端销售目标”与“后端供应链现实”。" },
-  
-  nplLock1: { en: "Lock Stakeholders", zh: "锁定人群" },
-  nplLock1Desc: { en: "Identify and align cross-functional partners (Sales, Marketing, Operations).", zh: "明确并对齐跨部门利益相关者（销售、营销、仓储运营），确认权责边界。" },
-  nplLock2: { en: "Lock Goals", zh: "锁定目标" },
-  nplLock2Desc: { en: "Align on precise volume forecasts and firm launch timelines.", zh: "就精确的销售预测体量和明确的发布时间表达成共识，锁定目标底线。" },
-  
-  nplP1: { en: "Commitment", zh: "有承诺" },
-  nplP1Desc: { en: "Secure firm capacity and lead-time commitments from vendors.", zh: "确保上游供应商端对产能和交货期的硬性承诺。" },
-  nplP2: { en: "Support", zh: "有支持" },
-  nplP2Desc: { en: "Ensure physical space readiness and system (NetSuite) training.", zh: "提供系统培训支持，确保仓储物理空间及系统底层逻辑就绪。" },
-  nplP3: { en: "Kick-off", zh: "有启动" },
-  nplP3Desc: { en: "Conduct formal alignment meetings to clear all operational blind spots.", zh: "通过正式启动会 (Kick-off) 和深度面谈，消除所有操作执行中的盲区。" },
-  nplP4: { en: "Incentive", zh: "有激励" },
-  nplP4Desc: { en: "Establish shared KPIs (e.g., in-stock rate vs. obsolescence).", zh: "建立跨部门共享的 KPI（如现货率与呆滞库存比例），打破部门博弈壁垒。" },
-  nplP5: { en: "Evaluation", zh: "有追踪" },
-  nplP5Desc: { en: "Track post-launch depletion rates aggressively to pivot replenishment.", zh: "密集追踪发布后的实际消耗率 (Depletion Rate)，并动态评估、调整补货策略。" },
+  // Interactive 2L-5P Interactive Section
+  interactiveTitle: { en: "The '2L-5P' Standard Operating Procedure", zh: "全能操作系统：2L-5P「两锁定·五保证」法则" },
+  interactiveDesc: { en: "My universal problem-solving framework. Select a scenario below to see how I apply this methodology across External Vendor relations and Internal Operations.", zh: "我个人的底层操作系统。无论是对外的供应商博弈，还是对内的产销协同，我均以这 7 个标准化步骤击破难点。请点击下方场景查看应用细节：" },
+  externalTab: { en: "EXTERNAL / OUTBOUND", zh: "对外协同 (External)" },
+  internalTab: { en: "INTERNAL / INBOUND", zh: "对内协同 (Internal)" },
+  lblLock1: { en: "Lock Stakeholders", zh: "锁定人群" },
+  lblLock2: { en: "Lock Goals", zh: "锁定目标" },
+  lblP1: { en: "Commitment", zh: "有承诺" },
+  lblP2: { en: "Support", zh: "有支持" },
+  lblP3: { en: "Kick-off", zh: "有启动" },
+  lblP4: { en: "Incentive", zh: "有激励" },
+  lblP5: { en: "Evaluation", zh: "有追踪" },
+
+  // Matrix Data
+  matrix: {
+    vendor: {
+      btnTitle: { en: "Vendor Management", zh: "供应商协同管控" },
+      l1: { en: "Identify core factories, forwarders, and customs brokers.", zh: "锁定核心代工厂、货代及清关团队，明确外部责任人。" },
+      l2: { en: "Define strict lead times, MOQ thresholds, and unit cost targets.", zh: "锁定目标交期、最小起订量 (MOQ) 及降本指标红线。" },
+      p1: { en: "Negotiate hard Service Level Agreements (SLAs) with China suppliers.", zh: "与海外(中国)供应商签署并强调严苛的服务水平承诺(SLA)。" },
+      p2: { en: "Provide 12-month rolling forecasts so factories can secure raw materials.", zh: "向工厂提供 12 个月滚动预测数据，支持其提前备料。" },
+      p3: { en: "Conduct Quarterly Business Reviews (QBR) to discuss vendor performance.", zh: "每季度举行供应商业务回顾会，沟通风险与改善点。" },
+      p4: { en: "Reward top-performing vendors with larger PO allocations.", zh: "用采购份额倾斜来奖励合规率高、交期稳的供应商。" },
+      p5: { en: "Generate Monthly Vendor Compliance Reports as required by management.", zh: "严格按 JD 要求，每月输出《供应商合规与表现报告》。" }
+    },
+    customer: {
+      btnTitle: { en: "Customer / Channel", zh: "客户与渠道支持" },
+      l1: { en: "Identify key B2B accounts, wholesale distributors, and Sales Reps.", zh: "锁定核心 B2B 大客户、区域分销商及内部对应销售人员。" },
+      l2: { en: "Establish Target Order Fill Rates (OTIF) and minimum service levels.", zh: "锁定客户订单履约率 (OTIF) 红线及现货满足率基准。" },
+      p1: { en: "Guarantee VIP supply allocation commitments during shortage periods.", zh: "在全网缺货时，对头部 VIP 客户做出硬性保供承诺。" },
+      p2: { en: "Provide transparent ETAs and inbound visibility to the sales team.", zh: "向前端团队提供在途物资的清晰视野与预计到港时间(ETA)。" },
+      p3: { en: "Hold Joint Business Planning (JBP) sessions before peak seasons.", zh: "在旺季来临前，与大客户代表进行联合商业计划制定。" },
+      p4: { en: "Minimize punitive stockout penalties from critical retail partners.", zh: "通过精准补货，帮助公司规避核心渠道的断货罚款损失。" },
+      p5: { en: "Track daily backorder statuses and customer fulfillment ratios.", zh: "每日高频追踪 Backorder (欠货) 状态与实际订单满足率。" }
+    },
+    sop: {
+      btnTitle: { en: "Routine S&OP", zh: "日常产销协同 (S&OP)" },
+      l1: { en: "Align Sales, Marketing, Finance, and Warehouse Operations.", zh: "对齐并打通跨部门团队：销售、营销、财务与库房运营。" },
+      l2: { en: "Align on monthly fill rate targets vs. working capital limits.", zh: "锁定月度现货率目标，同时坚守流动资金占用底线。" },
+      p1: { en: "Obtain firm volume forecasts from Sales to drive procurement.", zh: "获取销售端确定的销量预测，严禁朝令夕改。" },
+      p2: { en: "Maintain clean NetSuite master data (Safety stock, Lead times).", zh: "持续维护准确的 NetSuite 主数据，保障系统自动排程无误。" },
+      p3: { en: "Lead bi-weekly replenishment review meetings to assess risks.", zh: "主导双周维度的补货复盘会议，排查爆仓与断货风险。" },
+      p4: { en: "Share obsolescence cost reports so Sales shares inventory accountability.", zh: "公开呆滞库存成本，倒逼销售端共担清理死库存的责任。" },
+      p5: { en: "Daily tracking of depletion rates vs. forecast to mitigate excess.", zh: "每日比对实际消耗与预测值，动态调整 PO 踩刹车或油门。" }
+    },
+    npl: {
+      btnTitle: { en: "New Product Launch", zh: "新品发布项目 (NPL)" },
+      l1: { en: "Identify NPL Project Managers, Product Marketing, and Logistics.", zh: "明确 NPL 项目经理、产品营销及物流实施人员的权责边界。" },
+      l2: { en: "Establish an unshakeable Launch Date and initial launch volumes.", zh: "锁定不可动摇的首发日期，及精确的首批铺货体量预测。" },
+      p1: { en: "Secure firm production commitments and fast-track shipping from vendors.", zh: "确保海外工厂的首批产能倾斜，及货代的空运/快船承运承诺。" },
+      p2: { en: "Ensure physical warehouse space is allocated and SKUs are active in ERP.", zh: "确保库房物理储存空间就绪，且 ERP 允许新品直接收货入库。" },
+      p3: { en: "Conduct Stage-Gate alignment meetings to clear all operational blind spots.", zh: "举行严格的 Stage-Gate 流程核对会，消除执行层面的信息盲区。" },
+      p4: { en: "Establish a shared cross-functional KPI for 'On-Time Launch Rate'.", zh: "设立跨部门共享的'准时发售率' KPI，打破部门各自为战。" },
+      p5: { en: "High-frequency tracking of post-launch velocity to pivot follow-up POs.", zh: "发布首周高频追踪动销率，根据真实热度秒级调整第二波补货。" }
+    }
+  },
 
   // 60-Day Matrix
-  planTitle: { en: "The 90-Day Action Matrix", zh: "首发 90 天行动计划 (90-Day Matrix)" },
+  planTitle: { en: "The 90-Day Action Matrix", zh: "首发 90 天行动计划" },
   planDesc: { en: "My structured plan to hit the ground running at Pacific Smoke. Core principle: Establish stable structures before pursuing speed.", zh: "我在 Pacific Smoke 快速产生价值的结构化入职计划。核心原则：在追求速度之前，优先建立稳定的数据与沟通结构。" },
   plan30Title: { en: "Phase 1: Assess & Learn (Days 1-30)", zh: "阶段一：评估与建联 (Days 1-30)" },
   plan30_1: { en: "Master NetSuite parameters: Item Master Data, lead times, MOQ, and safety stock logics.", zh: "精通 NetSuite 参数：物料主数据、交货期、MOQ 和安全库存逻辑。" },
@@ -105,12 +128,17 @@ const t = {
   plan90_2: { en: "Coordinate inventory plans for upcoming New Product Launches (NPL) aligning supply with demand.", zh: "统筹即将到来的新产品发布 (NPL) 的前置库存计划，确保供需完美平衡。" }
 };
 
+type ScenarioType = 'vendor' | 'customer' | 'sop' | 'npl';
+
 function App() {
   const [lang, setLang] = useState<'en' | 'zh'>('en');
+  const [activeScenario, setActiveScenario] = useState<ScenarioType>('sop');
 
   const toggleLang = () => {
     setLang(prev => prev === 'en' ? 'zh' : 'en');
   };
+
+  const activeData = t.matrix[activeScenario];
 
   return (
     <div className="min-h-screen bg-brand-dark selection:bg-brand-accent selection:text-white pb-0 font-sans text-brand-text/90">
@@ -235,66 +263,23 @@ function App() {
         </div>
       </section>
 
-      {/* STAR Stories */}
-      <section className="py-24 px-6 bg-brand-card/30 border-y border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <FadeIn>
-            <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.starTitle[lang]}</h2>
-              <p className="text-brand-muted text-lg">{t.starDesc[lang]}</p>
-            </div>
-          </FadeIn>
-          
-          <div className="space-y-8">
-            <FadeIn delay={0.1}>
-              <div className="bg-brand-card border border-white/10 rounded-3xl p-8 md:p-10 hover:border-brand-accent/30 transition-colors">
-                <h4 className="text-brand-accent font-bold text-xl mb-4 flex items-center gap-3">
-                  <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
-                  {t.star1Context[lang]}
-                </h4>
-                <div className="pl-5 border-l-2 border-white/10 space-y-4">
-                  <p className="text-white leading-relaxed text-lg">{t.star1Action[lang]}</p>
-                  <p className="text-brand-muted bg-white/5 p-4 rounded-xl border border-white/5 font-medium">✓ {t.star1Result[lang]}</p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.2}>
-              <div className="bg-brand-card border border-white/10 rounded-3xl p-8 md:p-10 hover:border-brand-accent/30 transition-colors">
-                <h4 className="text-brand-accent font-bold text-xl mb-4 flex items-center gap-3">
-                  <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
-                  {t.star2Context[lang]}
-                </h4>
-                <div className="pl-5 border-l-2 border-white/10 space-y-4">
-                  <p className="text-white leading-relaxed text-lg">{t.star2Action[lang]}</p>
-                  <p className="text-brand-muted bg-white/5 p-4 rounded-xl border border-white/5 font-medium">✓ {t.star2Result[lang]}</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
       {/* Blueprint Diagram Section */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="pt-24 pb-12 px-6 max-w-7xl mx-auto">
         <FadeIn>
-          <div className="max-w-4xl mx-auto text-center mb-24">
+          <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t.knowledgeTitle[lang]}</h2>
             <p className="text-brand-muted text-lg leading-relaxed">
               {t.knowledgeDesc[lang]}
             </p>
           </div>
           
-          <div className="relative mb-24">
-            {/* Visual Connecting Lines (Desktop) */}
+          <div className="relative mb-12">
             <div className="absolute top-1/2 left-[15%] w-[70%] h-[2px] bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent -translate-y-1/2 hidden lg:block z-0"></div>
             <div className="absolute top-[15%] left-1/2 w-[2px] h-[70%] bg-gradient-to-b from-transparent via-brand-accent/30 to-transparent -translate-x-1/2 hidden lg:block z-0"></div>
             
             <div className="grid lg:grid-cols-3 gap-8 relative z-10">
-              
-              {/* Left: Upstream */}
               <FadeIn delay={0.1}>
-                <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl hover:border-brand-accent/40 transition-all lg:mt-32">
+                <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl lg:mt-32">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
                     <Network size={28} />
                   </div>
@@ -302,11 +287,9 @@ function App() {
                   <p className="text-brand-muted leading-relaxed">{t.upstreamDesc[lang]}</p>
                 </div>
               </FadeIn>
-
-              {/* Center: The Core / Control Tower */}
               <div className="space-y-8 relative z-20">
                 <FadeIn delay={0.2}>
-                  <div className="bg-gradient-to-b from-brand-accent/10 to-brand-card p-8 rounded-3xl border-2 border-brand-accent/40 shadow-[0_0_40px_rgba(239,68,68,0.15)] text-center transform hover:scale-105 transition-transform">
+                  <div className="bg-gradient-to-b from-brand-accent/10 to-brand-card p-8 rounded-3xl border-2 border-brand-accent/40 shadow-[0_0_40px_rgba(239,68,68,0.15)] text-center">
                     <div className="w-16 h-16 rounded-2xl bg-brand-accent/20 flex items-center justify-center text-brand-accent mb-6 mx-auto">
                       <Database size={32} />
                     </div>
@@ -314,9 +297,8 @@ function App() {
                     <p className="text-brand-muted leading-relaxed font-medium">{t.hubDesc[lang]}</p>
                   </div>
                 </FadeIn>
-
                 <FadeIn delay={0.3}>
-                  <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl hover:border-brand-accent/40 transition-all text-center">
+                  <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl text-center">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-transparent flex items-center justify-center text-emerald-400 mb-6 mx-auto border border-emerald-500/20">
                       <Box size={24} />
                     </div>
@@ -325,10 +307,8 @@ function App() {
                   </div>
                 </FadeIn>
               </div>
-
-              {/* Right: Downstream */}
               <FadeIn delay={0.4}>
-                <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl hover:border-brand-accent/40 transition-all lg:mt-32">
+                <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl lg:mt-32">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-transparent flex items-center justify-center text-purple-400 mb-6 border border-purple-500/20">
                     <TrendingUp size={28} />
                   </div>
@@ -338,74 +318,165 @@ function App() {
               </FadeIn>
             </div>
           </div>
-
-          {/* 2L-5P Framework Banner integrated seamlessly below Blueprint */}
-          <FadeIn delay={0.5}>
-            <div className="max-w-5xl mx-auto bg-gradient-to-r from-brand-card via-brand-dark to-brand-card border border-brand-accent/20 rounded-3xl p-8 md:p-12 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-10 border-b border-white/10 pb-8">
-                <div className="w-16 h-16 rounded-2xl bg-brand-accent/20 text-brand-accent flex items-center justify-center shrink-0">
-                  <Target size={32} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3">{t.nplTitle[lang]}</h3>
-                  <p className="text-brand-muted text-lg leading-relaxed">{t.nplDesc[lang]}</p>
-                </div>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-12">
-                {/* 2 Locks */}
-                <div>
-                  <h4 className="text-brand-accent font-bold uppercase tracking-wider mb-6 text-sm flex items-center gap-2">
-                    <Lock size={16} /> 2 Locks (两锁定)
-                  </h4>
-                  <ul className="space-y-6">
-                    <li>
-                      <div className="font-bold text-white mb-1">{t.nplLock1[lang]}</div>
-                      <div className="text-sm text-brand-muted">{t.nplLock1Desc[lang]}</div>
-                    </li>
-                    <li>
-                      <div className="font-bold text-white mb-1">{t.nplLock2[lang]}</div>
-                      <div className="text-sm text-brand-muted">{t.nplLock2Desc[lang]}</div>
-                    </li>
-                  </ul>
-                </div>
-                
-                {/* 5 Pillars */}
-                <div>
-                  <h4 className="text-emerald-400 font-bold uppercase tracking-wider mb-6 text-sm flex items-center gap-2">
-                    <CheckCircle size={16} /> 5 Pillars (五保证)
-                  </h4>
-                  <ul className="space-y-4">
-                    <li className="grid grid-cols-[100px_1fr] gap-4">
-                      <div className="font-bold text-white">{t.nplP1[lang]}</div>
-                      <div className="text-sm text-brand-muted">{t.nplP1Desc[lang]}</div>
-                    </li>
-                    <li className="grid grid-cols-[100px_1fr] gap-4">
-                      <div className="font-bold text-white">{t.nplP2[lang]}</div>
-                      <div className="text-sm text-brand-muted">{t.nplP2Desc[lang]}</div>
-                    </li>
-                    <li className="grid grid-cols-[100px_1fr] gap-4">
-                      <div className="font-bold text-white">{t.nplP3[lang]}</div>
-                      <div className="text-sm text-brand-muted">{t.nplP3Desc[lang]}</div>
-                    </li>
-                    <li className="grid grid-cols-[100px_1fr] gap-4">
-                      <div className="font-bold text-white">{t.nplP4[lang]}</div>
-                      <div className="text-sm text-brand-muted">{t.nplP4Desc[lang]}</div>
-                    </li>
-                    <li className="grid grid-cols-[100px_1fr] gap-4">
-                      <div className="font-bold text-white">{t.nplP5[lang]}</div>
-                      <div className="text-sm text-brand-muted">{t.nplP5Desc[lang]}</div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
         </FadeIn>
       </section>
 
+      {/* Interactive 2L-5P Matrix (The Fishbone / Vertical Tree) */}
+      <section className="py-12 px-6 bg-brand-card/30 border-y border-white/5 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 flex items-center justify-center gap-4">
+                <Target className="text-brand-accent" size={36} />
+                {t.interactiveTitle[lang]}
+              </h2>
+              <p className="text-brand-muted max-w-2xl mx-auto text-lg">{t.interactiveDesc[lang]}</p>
+            </div>
+            
+            {/* Control Panel: Left (External) vs Right (Internal) */}
+            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-16 bg-brand-dark p-2 rounded-2xl border border-white/10">
+              
+              {/* External Group */}
+              <div className="p-4 rounded-xl border border-dashed border-white/10 relative">
+                <div className="absolute -top-3 left-6 bg-brand-dark px-2 text-xs font-bold text-brand-muted tracking-widest">{t.externalTab[lang]}</div>
+                <div className="flex flex-col sm:flex-row gap-2 mt-2">
+                  <button 
+                    onClick={() => setActiveScenario('vendor')}
+                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'vendor' ? 'bg-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-white/10 hover:text-white'}`}
+                  >
+                    <Truck size={18} /> {t.matrix.vendor.btnTitle[lang]}
+                  </button>
+                  <button 
+                    onClick={() => setActiveScenario('customer')}
+                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'customer' ? 'bg-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-white/10 hover:text-white'}`}
+                  >
+                    <Users size={18} /> {t.matrix.customer.btnTitle[lang]}
+                  </button>
+                </div>
+              </div>
+
+              {/* Internal Group */}
+              <div className="p-4 rounded-xl border border-dashed border-brand-accent/30 relative">
+                <div className="absolute -top-3 left-6 bg-brand-dark px-2 text-xs font-bold text-brand-accent tracking-widest">{t.internalTab[lang]}</div>
+                <div className="flex flex-col sm:flex-row gap-2 mt-2">
+                  <button 
+                    onClick={() => setActiveScenario('sop')}
+                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'sop' ? 'bg-brand-accent text-white shadow-[0_0_15px_rgba(239,68,68,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-brand-accent/20 hover:text-brand-accent'}`}
+                  >
+                    <Briefcase size={18} /> {t.matrix.sop.btnTitle[lang]}
+                  </button>
+                  <button 
+                    onClick={() => setActiveScenario('npl')}
+                    className={`flex-1 py-3 px-4 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all ${activeScenario === 'npl' ? 'bg-brand-accent text-white shadow-[0_0_15px_rgba(239,68,68,0.5)]' : 'bg-white/5 text-brand-muted hover:bg-brand-accent/20 hover:text-brand-accent'}`}
+                  >
+                    <TrendingUp size={18} /> {t.matrix.npl.btnTitle[lang]}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Vertical Fishbone Timeline */}
+            <div className="max-w-3xl mx-auto relative pl-8 md:pl-0">
+              {/* Central Spine Line */}
+              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-accent via-blue-500 to-transparent -translate-x-1/2"></div>
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeScenario}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-6"
+                >
+                  
+                  {/* Node: Lock 1 */}
+                  <div className="relative flex items-center md:justify-end">
+                    <div className="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-brand-accent -translate-x-1/2 z-10 flex items-center justify-center"><Lock size={10} className="text-brand-accent" /></div>
+                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
+                      <div className="bg-brand-dark border border-white/10 p-5 rounded-2xl shadow-lg relative group hover:border-brand-accent/50 transition-all">
+                        <div className="text-xs font-bold text-brand-accent mb-1 tracking-wider uppercase">{t.lblLock1[lang]}</div>
+                        <div className="text-white font-medium">{activeData.l1[lang]}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Node: Lock 2 */}
+                  <div className="relative flex items-center md:justify-start">
+                    <div className="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-brand-accent -translate-x-1/2 z-10 flex items-center justify-center"><Lock size={10} className="text-brand-accent" /></div>
+                    <div className="ml-10 md:ml-0 md:pl-12 md:w-1/2 text-left">
+                      <div className="bg-brand-dark border border-white/10 p-5 rounded-2xl shadow-lg relative group hover:border-brand-accent/50 transition-all">
+                        <div className="text-xs font-bold text-brand-accent mb-1 tracking-wider uppercase">{t.lblLock2[lang]}</div>
+                        <div className="text-white font-medium">{activeData.l2[lang]}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Node: Pillar 1 */}
+                  <div className="relative flex items-center md:justify-end mt-12">
+                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
+                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
+                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
+                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP1[lang]}</div>
+                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p1[lang]}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Node: Pillar 2 */}
+                  <div className="relative flex items-center md:justify-start">
+                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
+                    <div className="ml-10 md:ml-0 md:pl-12 md:w-1/2 text-left">
+                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
+                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP2[lang]}</div>
+                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p2[lang]}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Node: Pillar 3 */}
+                  <div className="relative flex items-center md:justify-end">
+                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
+                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
+                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
+                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP3[lang]}</div>
+                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p3[lang]}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Node: Pillar 4 */}
+                  <div className="relative flex items-center md:justify-start">
+                    <div className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-brand-dark border-2 border-blue-400 -translate-x-1/2 z-10 flex items-center justify-center"></div>
+                    <div className="ml-10 md:ml-0 md:pl-12 md:w-1/2 text-left">
+                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-md hover:border-blue-400/50 transition-all">
+                        <div className="text-xs font-bold text-blue-400 mb-1 tracking-wider uppercase">{t.lblP4[lang]}</div>
+                        <div className="text-brand-muted text-sm leading-relaxed">{activeData.p4[lang]}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Node: Pillar 5 */}
+                  <div className="relative flex items-center md:justify-end">
+                    <div className="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-emerald-500 -translate-x-1/2 z-10 flex items-center justify-center"><CheckCircle size={10} className="text-emerald-500" /></div>
+                    <div className="ml-10 md:ml-0 md:pr-12 md:w-1/2 text-left md:text-right">
+                      <div className="bg-brand-card border border-white/5 p-5 rounded-2xl shadow-lg hover:border-emerald-500/50 transition-all">
+                        <div className="text-xs font-bold text-emerald-500 mb-1 tracking-wider uppercase">{t.lblP5[lang]}</div>
+                        <div className="text-brand-muted text-sm font-medium leading-relaxed">{activeData.p5[lang]}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </motion.div>
+              </AnimatePresence>
+
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* 90-Day Matrix (Moved to bottom) */}
-      <section className="py-24 px-6 bg-brand-card/50 border-t border-white/5">
+      <section className="py-24 px-6 bg-brand-dark border-t border-white/5">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="text-center mb-20">
@@ -420,7 +491,7 @@ function App() {
                 <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
                   <h3 className="text-xl font-bold text-brand-accent">{t.plan30Title[lang]}</h3>
                 </div>
-                <div className="bg-brand-dark border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
+                <div className="bg-brand-card border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
                   <ul className="space-y-4 text-brand-muted">
                     <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_1[lang]}</span></li>
                     <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan30_2[lang]}</span></li>
@@ -435,7 +506,7 @@ function App() {
                 <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
                   <h3 className="text-xl font-bold text-brand-accent">{t.plan60Title[lang]}</h3>
                 </div>
-                <div className="bg-brand-dark border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
+                <div className="bg-brand-card border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
                   <ul className="space-y-4 text-brand-muted">
                     <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_1[lang]}</span></li>
                     <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan60_2[lang]}</span></li>
@@ -450,7 +521,7 @@ function App() {
                 <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
                   <h3 className="text-xl font-bold text-brand-accent">{t.plan90Title[lang]}</h3>
                 </div>
-                <div className="bg-brand-dark border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
+                <div className="bg-brand-card border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
                   <ul className="space-y-4 text-brand-muted">
                     <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_1[lang]}</span></li>
                     <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_2[lang]}</span></li>
