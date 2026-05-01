@@ -73,60 +73,60 @@ const t = {
   matrix: {
     left: {
       default: {
-        l1: { en: "Lock international suppliers, forwarders, and carriers.", zh: "明确外部对接节点：海外代工厂、货代及清关代理。" },
-        l2: { en: "Lock lead times, MOQ, and inbound logistics costs.", zh: "锁定外部红线：目标交期、MOQ 约束与跨境物流成本。" },
-        p1: { en: "Demand firm lead time and capacity commitments from vendors.", zh: "承诺是双向的：对外部，需要中国供应商提供死硬的交期承诺。" },
-        p2: { en: "Provide rolling forecasts to factories to secure raw materials.", zh: "向下游供应商输出长期滚动预测，支撑其大宗备料。" },
-        p3: { en: "Discuss lead time and customs delay risks upfront.", zh: "事前会议：把所有的海外 Lead time 延误、清关延误风险摆在桌面上谈透。" },
-        p4: { en: "Use PO allocation as an incentive for compliant vendors.", zh: "用采购订单 (PO) 份额倾斜来激励按时交货率高的优质供应商。" },
-        p5: { en: "Expedite POs or delay shipments based on demand shifts.", zh: "动态纠偏：一旦需求偏离预测，立即通过加急 PO 或推迟海外发货来纠偏。" }
+        l1: { en: "Map out the entire external partnership network and key contacts.", zh: "锁定所有外部节点的对接窗口及职责边界。" },
+        l2: { en: "Lock end-to-end external targets: lead times, costs, and fill rates.", zh: "锁定全链路的外部宏观指标：时效、成本、履约率。" },
+        p1: { en: "Secure preliminary resource commitments from external partners.", zh: "获取外部伙伴基于 S&OP 计划的初步资源确认。" },
+        p2: { en: "Provide macro-level forecasts to secure baseline operational support.", zh: "向外部单向输出宏观预测，换取其底层运营保障。" },
+        p3: { en: "Hold regular routine alignment meetings with external stakeholders.", zh: "定期与外部合作方举行常规的业务对齐沟通会。" },
+        p4: { en: "Use overarching procurement volume to maintain healthy relationships.", zh: "将整体采购预算与订单规模作为维持合作的激励基石。" },
+        p5: { en: "Monitor the macro-level flow efficiency of the external network.", zh: "宏观把控外部供应链与物流网络的整体流转效率。" }
       },
       vendor: {
-        l1: { en: "Identify core factories and critical inbound forwarders.", zh: "锁定核心代工厂及关键入境货代团队。" },
-        l2: { en: "Define strict lead times, MOQ thresholds, and unit cost targets.", zh: "锁定目标交期、最小起订量 (MOQ) 阶梯及降本指标。" },
-        p1: { en: "Negotiate hard Service Level Agreements (SLAs) with China suppliers.", zh: "与海外(中国)供应商签署并强调严苛的服务水平承诺(SLA)。" },
-        p2: { en: "Ensure vendor portals and EDI/NetSuite integrations are maintained.", zh: "确保供应商信息库与 NetSuite 系统的物料映射准确无误。" },
-        p3: { en: "Conduct Quarterly Business Reviews (QBR) to discuss vendor performance.", zh: "每季度举行供应商业务回顾会(QBR)，深度沟通风险与改善点。" },
-        p4: { en: "Reward top-performing vendors with larger PO allocations.", zh: "用采购份额的大幅倾斜，激励合规率高、交期稳的头部供应商。" },
-        p5: { en: "Generate Monthly Vendor Compliance Reports as required by management.", zh: "严格按 JD 要求，每月输出详尽的《供应商合规与表现报告》。" }
+        l1: { en: "Pinpoint key decision-makers at core factories in China & inbound forwarders.", zh: "深入摸排中国核心代工厂的排产负责人，及关键入境货代专员。" },
+        l2: { en: "Define strict tiered pricing, MOQs, and 90+ day overseas lead times.", zh: "锁定严苛的阶梯报价、MOQ (最小起订量) 及远期交货周期。" },
+        p1: { en: "Force overseas factories to sign iron-clad SLAs for expedited POs.", zh: "强制要求海外工厂对加急采购订单 (PO) 签署绝对的交期承诺。" },
+        p2: { en: "Distribute precise 12-week rolling MRPs to ensure uninterrupted sourcing.", zh: "分发精准的 12 周滚动需求计划，保障供应商大宗备料不中断。" },
+        p3: { en: "Lead QBRs to audit late shipments and compliance failures.", zh: "主导每季度的 QBR 会议，逐笔清算异常交期和品质违约。" },
+        p4: { en: "Heavily allocate PO volumes to vendors maintaining a 98%+ OTIF rate.", zh: "对连续按时交货率高的工厂，实施大幅度的 PO 采购份额倾斜。" },
+        p5: { en: "Generate monthly Vendor Compliance Dashboards to execute vendor consolidation.", zh: "每月向高管产出《供应商绩效看板》，根据实际评分执行末位淘汰。" }
       },
       customer: {
-        l1: { en: "Identify key B2B accounts, wholesale distributors, and Sales Reps.", zh: "锁定核心 B2B 大客户、区域分销商及内部对应销售人员。" },
-        l2: { en: "Establish Target Order Fill Rates (OTIF) and minimum service levels.", zh: "锁定核心大客户的订单履约率 (OTIF) 红线。" },
-        p1: { en: "Guarantee VIP supply allocation commitments during shortage periods.", zh: "在全网缺货的危机时期，对头部 VIP 客户做出硬性保供承诺。" },
-        p2: { en: "Provide transparent ETAs and inbound visibility to the sales team.", zh: "向业务前端提供在途物资的清晰视野与预计到港时间(ETA)。" },
-        p3: { en: "Hold Joint Business Planning (JBP) sessions before peak seasons.", zh: "在黑五等旺季来临前，参与大客户联合商业计划(JBP)制定。" },
-        p4: { en: "Minimize punitive stockout penalties from critical retail partners.", zh: "通过前置精准调拨，帮助公司规避核心零售商的巨额断货罚款。" },
-        p5: { en: "Track daily backorder statuses and customer fulfillment ratios.", zh: "每日高频追踪 Backorder (欠货) 状态与实际订单满足率。" }
+        l1: { en: "Identify B2B wholesale buyers, regional distributors, and sales directors.", zh: "锁定 B2B 大客户采购负责人、区域分销商以及内部的区域销售总监。" },
+        l2: { en: "Establish strict OTIF minimums and allocation priorities during peak seasons.", zh: "锁定客户的现货满足率 (OTIF) 底线，及大促期间的库存调拨优先级。" },
+        p1: { en: "Guarantee VIP supply allocation for core SKUs during critical shortages.", zh: "在全网缺货期间，向头部 VIP 客户做出“核心单品不断货”的硬性承诺。" },
+        p2: { en: "Provide the sales team with full inbound visibility and precise ETAs.", zh: "向业务前端开放物流轨迹权限，提供精准的预计到港时间 (ETA)。" },
+        p3: { en: "Kick-off Joint Business Planning (JBP) 60 days prior to major sales events.", zh: "在黑五等大促前 60 天，强制启动大客户联合商业计划 (JBP) 对齐会。" },
+        p4: { en: "Minimize punitive stockout penalties via proactive inventory transfers.", zh: "通过前置的跨区库存调拨，为公司规避大型零售渠道严苛的断货罚款。" },
+        p5: { en: "Conduct daily rolling reviews of Backorders to maximize sales conversion.", zh: "每日滚动排查 Backorder (欠货) 状态，将滞留订单的转化率提至最高。" }
       }
     },
     right: {
       default: {
-        l1: { en: "Lock internal matrix: Sales, Marketing, Operations, Finance.", zh: "锁定内部对接矩阵：销售要销量、市场要节点、运营要仓容、财务要预算。" },
-        l2: { en: "Lock business red lines: 99% Fill Rate vs. reducing obsolescence.", zh: "锁定业务红线：这批货的目标是保 99% 现货率，还是为了消化呆滞库存？" },
-        p1: { en: "Demand firm volume forecast commitments from Sales.", zh: "承诺是双向的：对内部，需要销售团队对他们给出的销量预测 (Forecast) 做出承诺。" },
-        p2: { en: "Maintain NetSuite parameters (Lead time, Safety stock).", zh: "核心支持动作：日常深度维护 NetSuite 的各项底层参数，让系统跑出准确数据。" },
-        p3: { en: "Run bi-weekly replenishment meetings & NPL kick-offs.", zh: "内部排雷：对于新品是项目 Kick-off 会；对于日常是双周补货沟通会。" },
-        p4: { en: "Share Obsolescence Reports to drive cross-functional accountability.", zh: "数据透明度：输出《呆滞库存报告》暴露库存成本，倒逼销售主推老品打破背锅壁垒。" },
-        p5: { en: "High-frequency tracking of depletion rates.", zh: "事后追踪重于事前预测：高频追踪实际消耗率 (Depletion rate) 动态评估。" }
+        l1: { en: "Lock the cross-functional matrix: identify core departments along the pipeline.", zh: "锁定跨部门协作矩阵：理清业务链路上的所有核心关联部门。" },
+        l2: { en: "Lock annual targets: balancing profit, market share, and working capital.", zh: "锁定公司运营总目标：在利润、市占率与资金占用间寻找平衡。" },
+        p1: { en: "Obtain in-principle consensus on strategic plans from all departments.", zh: "获取各部门对年度战略计划与常规预算的原则性共识与承诺。" },
+        p2: { en: "Maintain core ERP system logic to ensure consistent daily data flow.", zh: "维护 ERP 系统的底层逻辑与主数据，确保日常数据的连贯性。" },
+        p3: { en: "Execute standard internal meetings to ensure top-down information flow.", zh: "执行标准的内部例会制度，保障信息的上下通达与透明。" },
+        p4: { en: "Establish routine cross-functional metrics to keep the corporate gears turning.", zh: "设立常规的跨部门考核标准与共同目标，推动企业齿轮正常运转。" },
+        p5: { en: "Produce standard monthly inventory and sales reports for management review.", zh: "输出月度维度的常规进销存报表，供管理层做宏观审视与追踪。" }
       },
       sop: {
-        l1: { en: "Align Sales, Marketing, Finance, and Warehouse Operations.", zh: "对齐并打通跨部门团队：销售、营销、财务与库房运营。" },
-        l2: { en: "Align on monthly fill rate targets vs. working capital limits.", zh: "锁定月度现货率目标，同时坚守流动资金占用底线。" },
-        p1: { en: "Obtain firm volume forecasts from Sales to drive procurement.", zh: "获取销售端确定的销量预测，严禁朝令夕改。" },
-        p2: { en: "Maintain clean NetSuite master data (Safety stock, Lead times).", zh: "持续维护准确的 NetSuite 主数据，保障系统自动排程无误。" },
-        p3: { en: "Lead bi-weekly replenishment review meetings to assess risks.", zh: "主导双周维度的补货复盘会议，排查爆仓与断货风险。" },
-        p4: { en: "Share obsolescence cost reports so Sales shares inventory accountability.", zh: "公开呆滞库存成本，倒逼销售端共担清理死库存的责任。" },
-        p5: { en: "Daily tracking of depletion rates vs. forecast to mitigate excess.", zh: "每日比对实际消耗与预测值，动态调整 PO 踩刹车或油门。" }
+        l1: { en: "Lock the 4 S&OP pillars: Demand, Supply, Operations, and Finance.", zh: "锁定 S&OP 核心四方会谈人：需求端、供应端、仓储端、财务端。" },
+        l2: { en: "Lock turn ratios, drawing a red line between 99% fill rate and capital limits.", zh: "锁定极端的周转率目标，在“极高现货率”与“极低资金占用”间划定红线。" },
+        p1: { en: "Force Sales to make irrevocable commitments to their Volume Forecasts.", zh: "逼迫销售团队为他们提供的 Volume Forecast (销量预测) 做出签字承诺。" },
+        p2: { en: "Deep clean NetSuite data, dynamically adjusting safety stock for seasonality.", zh: "深度清洗 NetSuite 数据，动态更新安全库存水位 (ROP) 以应对季节性波动。" },
+        p3: { en: "Lead high-pressure bi-weekly reviews, tackling stockout warnings directly.", zh: "主导高压力的双周补货复盘会，直接切入断货预警与供应链瓶颈。" },
+        p4: { en: "Publicize Obsolete Inventory Costs to force Sales to share liquidation KPIs.", zh: "公示死库存持有成本，倒逼前端销售共担清理尾货的指标，打破背锅文化。" },
+        p5: { en: "Compare actual depletion vs forecasts daily, acting as the procurement clutch.", zh: "每日高频比对实际消耗与预测偏差，灵活踩下采购指令的刹车或油门。" }
       },
       npl: {
-        l1: { en: "Identify NPL Project Managers, Product Marketing, and Logistics.", zh: "明确 NPL 项目经理、产品营销及物流实施人员的权责边界。" },
-        l2: { en: "Establish an unshakeable Launch Date and initial launch volumes.", zh: "锁定不可动摇的首发日期，及精确的首批铺货体量预测。" },
-        p1: { en: "Secure firm sales targets and fast-track shipping budgets.", zh: "确保前端销售签署硬性提货目标，及财务批复空运加急预算。" },
-        p2: { en: "Ensure physical warehouse space is allocated and SKUs are active in ERP.", zh: "确保库房物理储存空间腾出，且 ERP 允许新品无缝直通入库。" },
-        p3: { en: "Conduct Stage-Gate alignment meetings to clear all operational blind spots.", zh: "主导严格的 Stage-Gate 流程核对会，消除执行层面的所有盲区。" },
-        p4: { en: "Establish a shared cross-functional KPI for 'On-Time Launch Rate'.", zh: "设立跨部门共享的'准时发售率' KPI，强行打破部门各自为战。" },
-        p5: { en: "High-frequency tracking of post-launch velocity to pivot follow-up POs.", zh: "发布首周高频追踪动销率，根据真实热度秒级调整第二波补货节奏。" }
+        l1: { en: "Pinpoint NPL Project Managers, Product Marketing leads, and floor supervisors.", zh: "精准锁定 NPL 项目经理、产品营销主创，及负责首发的库房区域主管。" },
+        l2: { en: "Lock the unshakeable Global Launch Date and exact initial volume forecast.", zh: "锁定不可动摇的“全球首发日期”及极其精准的首批铺货体量预测。" },
+        p1: { en: "Secure fast-track air freight budgets and strict first-week sales minimums.", zh: "确保市场部批复高昂的空运预算，且销售部承诺首周必须吃下的提货底线。" },
+        p2: { en: "Ensure warehouse slots are cleared and ERP allows seamless straight-through processing.", zh: "提前腾出库房物理空间，且 NetSuite 系统允许新品条码无缝直通入库。" },
+        p3: { en: "Convene centralized Stage-Gate meetings to eliminate all operational blind spots.", zh: "召开高度集权的新品 Stage-Gate 核对会，消除执行层面的所有盲区与推诿。" },
+        p4: { en: "Establish a heavily bonded 'On-Time Launch Rate' KPI to force unified execution.", zh: "设立跨部门高度绑定的“准时发售率”单一考核目标，执行强行军作战。" },
+        p5: { en: "Track post-launch velocity hourly, instantly pivoting wave-2 ocean freight.", zh: "首周按小时级别追踪动销流速，根据真实市场热度秒级调整第二波补货节奏。" }
       }
     }
   },
@@ -173,9 +173,9 @@ const FishboneNode = ({
         
         {/* Center Label Pill */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 z-20 flex items-center justify-center">
-          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-5 py-1.5 flex items-center gap-2 ${c.shadow} whitespace-nowrap`}>
-            <Icon size={14} className={c.text} />
-            <span className="text-xs font-bold tracking-widest uppercase text-white">{title}</span>
+          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-6 py-2 flex items-center gap-2.5 shadow-[0_0_20px_rgba(var(--color-${colorName}),0.6)] ${c.shadow} whitespace-nowrap transition-transform hover:scale-105 cursor-default`}>
+            <Icon size={18} className={c.text} />
+            <span className="text-sm font-bold tracking-widest uppercase text-white">{title}</span>
           </div>
         </div>
 
@@ -199,11 +199,11 @@ const FishboneNode = ({
       </div>
 
       {/* Mobile Stacked Layout */}
-      <div className="md:hidden flex flex-col w-full pb-8">
-        <div className="flex justify-center mb-4 relative z-10">
-          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-5 py-1.5 flex items-center gap-2 ${c.shadow}`}>
-            <Icon size={14} className={c.text} />
-            <span className="text-xs font-bold tracking-widest uppercase text-white">{title}</span>
+      <div className="md:hidden flex flex-col w-full pb-10">
+        <div className="flex justify-center mb-6 relative z-10">
+          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-6 py-2 flex items-center gap-2.5 ${c.shadow}`}>
+            <Icon size={16} className={c.text} />
+            <span className="text-sm font-bold tracking-widest uppercase text-white">{title}</span>
           </div>
         </div>
         <div className="flex flex-col gap-3 relative">
