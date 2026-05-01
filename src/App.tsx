@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle, Users, Truck, Briefcase } from 'lucide-react';
+import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle, Users, Truck, Briefcase, RotateCcw } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -82,22 +82,22 @@ const t = {
         p5: { en: "Expedite POs or delay shipments based on demand shifts.", zh: "动态纠偏：一旦需求偏离预测，立即通过加急 PO 或推迟海外发货来纠偏。" }
       },
       vendor: {
-        l1: { en: "Identify core factories and critical inbound forwarders.", zh: "【供应商管理】锁定核心代工厂及关键入境货代团队。" },
-        l2: { en: "Define strict lead times, MOQ thresholds, and unit cost targets.", zh: "【供应商管理】锁定目标交期、最小起订量 (MOQ) 阶梯及降本指标。" },
-        p1: { en: "Negotiate hard Service Level Agreements (SLAs) with China suppliers.", zh: "【供应商管理】与海外(中国)供应商签署并强调严苛的服务水平承诺(SLA)。" },
-        p2: { en: "Ensure vendor portals and EDI/NetSuite integrations are maintained.", zh: "【供应商管理】确保供应商信息库与 NetSuite 系统的物料映射准确无误。" },
-        p3: { en: "Conduct Quarterly Business Reviews (QBR) to discuss vendor performance.", zh: "【供应商管理】每季度举行供应商业务回顾会(QBR)，深度沟通风险与改善点。" },
-        p4: { en: "Reward top-performing vendors with larger PO allocations.", zh: "【供应商管理】用采购份额的大幅倾斜，激励合规率高、交期稳的头部供应商。" },
-        p5: { en: "Generate Monthly Vendor Compliance Reports as required by management.", zh: "【供应商管理】严格按 JD 要求，每月输出详尽的《供应商合规与表现报告》。" }
+        l1: { en: "Identify core factories and critical inbound forwarders.", zh: "锁定核心代工厂及关键入境货代团队。" },
+        l2: { en: "Define strict lead times, MOQ thresholds, and unit cost targets.", zh: "锁定目标交期、最小起订量 (MOQ) 阶梯及降本指标。" },
+        p1: { en: "Negotiate hard Service Level Agreements (SLAs) with China suppliers.", zh: "与海外(中国)供应商签署并强调严苛的服务水平承诺(SLA)。" },
+        p2: { en: "Ensure vendor portals and EDI/NetSuite integrations are maintained.", zh: "确保供应商信息库与 NetSuite 系统的物料映射准确无误。" },
+        p3: { en: "Conduct Quarterly Business Reviews (QBR) to discuss vendor performance.", zh: "每季度举行供应商业务回顾会(QBR)，深度沟通风险与改善点。" },
+        p4: { en: "Reward top-performing vendors with larger PO allocations.", zh: "用采购份额的大幅倾斜，激励合规率高、交期稳的头部供应商。" },
+        p5: { en: "Generate Monthly Vendor Compliance Reports as required by management.", zh: "严格按 JD 要求，每月输出详尽的《供应商合规与表现报告》。" }
       },
       customer: {
-        l1: { en: "Identify key B2B accounts, wholesale distributors, and Sales Reps.", zh: "【客户支持】锁定核心 B2B 大客户、区域分销商及内部对应销售人员。" },
-        l2: { en: "Establish Target Order Fill Rates (OTIF) and minimum service levels.", zh: "【客户支持】锁定核心大客户的订单履约率 (OTIF) 红线。" },
-        p1: { en: "Guarantee VIP supply allocation commitments during shortage periods.", zh: "【客户支持】在全网缺货的危机时期，对头部 VIP 客户做出硬性保供承诺。" },
-        p2: { en: "Provide transparent ETAs and inbound visibility to the sales team.", zh: "【客户支持】向业务前端提供在途物资的清晰视野与预计到港时间(ETA)。" },
-        p3: { en: "Hold Joint Business Planning (JBP) sessions before peak seasons.", zh: "【客户支持】在黑五等旺季来临前，参与大客户联合商业计划(JBP)制定。" },
-        p4: { en: "Minimize punitive stockout penalties from critical retail partners.", zh: "【客户支持】通过前置精准调拨，帮助公司规避核心零售商的巨额断货罚款。" },
-        p5: { en: "Track daily backorder statuses and customer fulfillment ratios.", zh: "【客户支持】每日高频追踪 Backorder (欠货) 状态与实际订单满足率。" }
+        l1: { en: "Identify key B2B accounts, wholesale distributors, and Sales Reps.", zh: "锁定核心 B2B 大客户、区域分销商及内部对应销售人员。" },
+        l2: { en: "Establish Target Order Fill Rates (OTIF) and minimum service levels.", zh: "锁定核心大客户的订单履约率 (OTIF) 红线。" },
+        p1: { en: "Guarantee VIP supply allocation commitments during shortage periods.", zh: "在全网缺货的危机时期，对头部 VIP 客户做出硬性保供承诺。" },
+        p2: { en: "Provide transparent ETAs and inbound visibility to the sales team.", zh: "向业务前端提供在途物资的清晰视野与预计到港时间(ETA)。" },
+        p3: { en: "Hold Joint Business Planning (JBP) sessions before peak seasons.", zh: "在黑五等旺季来临前，参与大客户联合商业计划(JBP)制定。" },
+        p4: { en: "Minimize punitive stockout penalties from critical retail partners.", zh: "通过前置精准调拨，帮助公司规避核心零售商的巨额断货罚款。" },
+        p5: { en: "Track daily backorder statuses and customer fulfillment ratios.", zh: "每日高频追踪 Backorder (欠货) 状态与实际订单满足率。" }
       }
     },
     right: {
@@ -111,22 +111,22 @@ const t = {
         p5: { en: "High-frequency tracking of depletion rates.", zh: "事后追踪重于事前预测：高频追踪实际消耗率 (Depletion rate) 动态评估。" }
       },
       sop: {
-        l1: { en: "Align Sales, Marketing, Finance, and Warehouse Operations.", zh: "【日常 S&OP】对齐并打通跨部门团队：销售、营销、财务与库房运营。" },
-        l2: { en: "Align on monthly fill rate targets vs. working capital limits.", zh: "【日常 S&OP】锁定月度现货率目标，同时坚守流动资金占用底线。" },
-        p1: { en: "Obtain firm volume forecasts from Sales to drive procurement.", zh: "【日常 S&OP】获取销售端确定的销量预测，严禁朝令夕改。" },
-        p2: { en: "Maintain clean NetSuite master data (Safety stock, Lead times).", zh: "【日常 S&OP】持续维护准确的 NetSuite 主数据，保障系统自动排程无误。" },
-        p3: { en: "Lead bi-weekly replenishment review meetings to assess risks.", zh: "【日常 S&OP】主导双周维度的补货复盘会议，排查爆仓与断货风险。" },
-        p4: { en: "Share obsolescence cost reports so Sales shares inventory accountability.", zh: "【日常 S&OP】公开呆滞库存成本，倒逼销售端共担清理死库存的责任。" },
-        p5: { en: "Daily tracking of depletion rates vs. forecast to mitigate excess.", zh: "【日常 S&OP】每日比对实际消耗与预测值，动态调整 PO 踩刹车或油门。" }
+        l1: { en: "Align Sales, Marketing, Finance, and Warehouse Operations.", zh: "对齐并打通跨部门团队：销售、营销、财务与库房运营。" },
+        l2: { en: "Align on monthly fill rate targets vs. working capital limits.", zh: "锁定月度现货率目标，同时坚守流动资金占用底线。" },
+        p1: { en: "Obtain firm volume forecasts from Sales to drive procurement.", zh: "获取销售端确定的销量预测，严禁朝令夕改。" },
+        p2: { en: "Maintain clean NetSuite master data (Safety stock, Lead times).", zh: "持续维护准确的 NetSuite 主数据，保障系统自动排程无误。" },
+        p3: { en: "Lead bi-weekly replenishment review meetings to assess risks.", zh: "主导双周维度的补货复盘会议，排查爆仓与断货风险。" },
+        p4: { en: "Share obsolescence cost reports so Sales shares inventory accountability.", zh: "公开呆滞库存成本，倒逼销售端共担清理死库存的责任。" },
+        p5: { en: "Daily tracking of depletion rates vs. forecast to mitigate excess.", zh: "每日比对实际消耗与预测值，动态调整 PO 踩刹车或油门。" }
       },
       npl: {
-        l1: { en: "Identify NPL Project Managers, Product Marketing, and Logistics.", zh: "【新品 NPL】明确 NPL 项目经理、产品营销及物流实施人员的权责边界。" },
-        l2: { en: "Establish an unshakeable Launch Date and initial launch volumes.", zh: "【新品 NPL】锁定不可动摇的首发日期，及精确的首批铺货体量预测。" },
-        p1: { en: "Secure firm sales targets and fast-track shipping budgets.", zh: "【新品 NPL】确保前端销售签署硬性提货目标，及财务批复空运加急预算。" },
-        p2: { en: "Ensure physical warehouse space is allocated and SKUs are active in ERP.", zh: "【新品 NPL】确保库房物理储存空间腾出，且 ERP 允许新品无缝直通入库。" },
-        p3: { en: "Conduct Stage-Gate alignment meetings to clear all operational blind spots.", zh: "【新品 NPL】主导严格的 Stage-Gate 流程核对会，消除执行层面的所有盲区。" },
-        p4: { en: "Establish a shared cross-functional KPI for 'On-Time Launch Rate'.", zh: "【新品 NPL】设立跨部门共享的'准时发售率' KPI，强行打破部门各自为战。" },
-        p5: { en: "High-frequency tracking of post-launch velocity to pivot follow-up POs.", zh: "【新品 NPL】发布首周高频追踪动销率，根据真实热度秒级调整第二波补货节奏。" }
+        l1: { en: "Identify NPL Project Managers, Product Marketing, and Logistics.", zh: "明确 NPL 项目经理、产品营销及物流实施人员的权责边界。" },
+        l2: { en: "Establish an unshakeable Launch Date and initial launch volumes.", zh: "锁定不可动摇的首发日期，及精确的首批铺货体量预测。" },
+        p1: { en: "Secure firm sales targets and fast-track shipping budgets.", zh: "确保前端销售签署硬性提货目标，及财务批复空运加急预算。" },
+        p2: { en: "Ensure physical warehouse space is allocated and SKUs are active in ERP.", zh: "确保库房物理储存空间腾出，且 ERP 允许新品无缝直通入库。" },
+        p3: { en: "Conduct Stage-Gate alignment meetings to clear all operational blind spots.", zh: "主导严格的 Stage-Gate 流程核对会，消除执行层面的所有盲区。" },
+        p4: { en: "Establish a shared cross-functional KPI for 'On-Time Launch Rate'.", zh: "设立跨部门共享的'准时发售率' KPI，强行打破部门各自为战。" },
+        p5: { en: "High-frequency tracking of post-launch velocity to pivot follow-up POs.", zh: "发布首周高频追踪动销率，根据真实热度秒级调整第二波补货节奏。" }
       }
     }
   },
@@ -150,6 +150,78 @@ const t = {
 type LeftScenario = 'default' | 'vendor' | 'customer';
 type RightScenario = 'default' | 'sop' | 'npl';
 
+const FishboneNode = ({ 
+  title, icon: Icon, leftContent, rightContent, leftActive, rightActive, colorName 
+}: { 
+  title: string, icon: any, leftContent: string, rightContent: string, leftActive: boolean, rightActive: boolean, colorName: 'purple' | 'blue' | 'emerald' 
+}) => {
+  const colorMap = {
+    purple: { border: 'border-purple-500', borderMuted: 'border-purple-500/30', borderHover: 'group-hover:border-purple-500/60', text: 'text-purple-400', shadow: 'shadow-[0_0_15px_rgba(168,85,247,0.4)]' },
+    blue: { border: 'border-blue-500', borderMuted: 'border-blue-500/30', borderHover: 'group-hover:border-blue-500/60', text: 'text-blue-400', shadow: 'shadow-[0_0_15px_rgba(59,130,246,0.4)]' },
+    emerald: { border: 'border-emerald-500', borderMuted: 'border-emerald-500/30', borderHover: 'group-hover:border-emerald-500/60', text: 'text-emerald-400', shadow: 'shadow-[0_0_15px_rgba(16,185,129,0.4)]' }
+  };
+  const c = colorMap[colorName];
+
+  return (
+    <>
+      {/* Desktop Fishbone Layout */}
+      <div className="relative hidden md:flex w-full group pt-2 pb-6">
+        {/* Left Curved Connector */}
+        <div className={`absolute top-5 right-1/2 w-[35%] h-10 border-t-2 border-l-2 ${c.borderMuted} rounded-tl-3xl z-0 transition-colors ${c.borderHover}`}></div>
+        {/* Right Curved Connector */}
+        <div className={`absolute top-5 left-1/2 w-[35%] h-10 border-t-2 border-r-2 ${c.borderMuted} rounded-tr-3xl z-0 transition-colors ${c.borderHover}`}></div>
+        
+        {/* Center Label Pill */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 z-20 flex items-center justify-center">
+          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-5 py-1.5 flex items-center gap-2 ${c.shadow} whitespace-nowrap`}>
+            <Icon size={14} className={c.text} />
+            <span className="text-xs font-bold tracking-widest uppercase text-white">{title}</span>
+          </div>
+        </div>
+
+        {/* Left Card */}
+        <div className="w-1/2 pr-12 lg:pr-20 text-right pt-10 relative z-10">
+          <AnimatePresence mode="wait">
+            <motion.div key={leftActive ? 'active' : 'default'} initial={{opacity:0, x:-10}} animate={{opacity:1, x:0}} exit={{opacity:0, x:10}} transition={{duration:0.2}} className={`p-5 rounded-2xl border transition-all ${leftActive ? 'bg-blue-500/10 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.15)]' : 'bg-brand-dark border-white/10 group-hover:border-white/20'}`}>
+              <div className={`font-medium leading-relaxed ${leftActive ? 'text-white' : 'text-brand-muted'}`}>{leftContent}</div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Right Card */}
+        <div className="w-1/2 pl-12 lg:pl-20 text-left pt-10 relative z-10">
+          <AnimatePresence mode="wait">
+            <motion.div key={rightActive ? 'active' : 'default'} initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} exit={{opacity:0, x:-10}} transition={{duration:0.2}} className={`p-5 rounded-2xl border transition-all ${rightActive ? 'bg-brand-accent/10 border-brand-accent/50 shadow-[0_0_20px_rgba(239,68,68,0.15)]' : 'bg-brand-dark border-white/10 group-hover:border-white/20'}`}>
+              <div className={`font-medium leading-relaxed ${rightActive ? 'text-white' : 'text-brand-muted'}`}>{rightContent}</div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Mobile Stacked Layout */}
+      <div className="md:hidden flex flex-col w-full pb-8">
+        <div className="flex justify-center mb-4 relative z-10">
+          <div className={`bg-brand-dark border-2 ${c.border} rounded-full px-5 py-1.5 flex items-center gap-2 ${c.shadow}`}>
+            <Icon size={14} className={c.text} />
+            <span className="text-xs font-bold tracking-widest uppercase text-white">{title}</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 relative">
+          <div className="absolute top-0 bottom-0 left-4 w-0.5 bg-white/5 z-0"></div>
+          <div className={`ml-8 p-4 rounded-xl border relative z-10 transition-colors ${leftActive ? 'bg-blue-500/10 border-blue-500/50' : 'bg-brand-dark border-white/10'}`}>
+            <div className="text-[10px] font-bold text-blue-400 mb-1 uppercase tracking-wider">EXTERNAL</div>
+            <div className={`text-sm ${leftActive ? 'text-white' : 'text-brand-muted'}`}>{leftContent}</div>
+          </div>
+          <div className={`ml-8 p-4 rounded-xl border relative z-10 transition-colors ${rightActive ? 'bg-brand-accent/10 border-brand-accent/50' : 'bg-brand-dark border-white/10'}`}>
+            <div className="text-[10px] font-bold text-brand-accent mb-1 uppercase tracking-wider">INTERNAL</div>
+            <div className={`text-sm ${rightActive ? 'text-white' : 'text-brand-muted'}`}>{rightContent}</div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
 function App() {
   const [lang, setLang] = useState<'en' | 'zh'>('en');
   const [activeLeft, setActiveLeft] = useState<LeftScenario>('default');
@@ -165,6 +237,11 @@ function App() {
 
   const handleRightClick = (mode: RightScenario) => {
     setActiveRight(prev => prev === mode ? 'default' : mode);
+  };
+
+  const handleReset = () => {
+    setActiveLeft('default');
+    setActiveRight('default');
   };
 
   const leftData = t.matrix.left[activeLeft];
@@ -375,230 +452,84 @@ function App() {
               </div>
             </div>
 
-            {/* Control Panel: Left (External) vs Right (Internal) */}
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
+            {/* Control Panel: Left (External) vs Right (Internal) + Center Reset */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-8 max-w-6xl mx-auto mb-20 relative">
+              
               {/* External Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-[45%]">
                 <button 
                   onClick={() => handleLeftClick('vendor')}
-                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeLeft === 'vendor' ? 'bg-blue-500/20 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-blue-400/50 hover:text-white'}`}
+                  className={`flex-1 py-4 px-4 lg:px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeLeft === 'vendor' ? 'bg-blue-500/20 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-blue-400/50 hover:text-white'}`}
                 >
-                  <Truck size={20} /> Vendor Management
+                  <Truck size={18} /> Vendor Management
                 </button>
                 <button 
                   onClick={() => handleLeftClick('customer')}
-                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeLeft === 'customer' ? 'bg-blue-500/20 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-blue-400/50 hover:text-white'}`}
+                  className={`flex-1 py-4 px-4 lg:px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeLeft === 'customer' ? 'bg-blue-500/20 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-blue-400/50 hover:text-white'}`}
                 >
-                  <Users size={20} /> Customer / Channel
+                  <Users size={18} /> Customer / Channel
+                </button>
+              </div>
+
+              {/* Reset Button (Center) */}
+              <div className="shrink-0 flex items-center justify-center w-full md:w-[10%] my-2 md:my-0">
+                <button 
+                  onClick={handleReset}
+                  disabled={activeLeft === 'default' && activeRight === 'default'}
+                  className={`p-3 lg:p-4 rounded-full border transition-all flex flex-col items-center justify-center gap-1.5 
+                    ${activeLeft !== 'default' || activeRight !== 'default' 
+                      ? 'bg-white/10 border-white/30 text-white hover:bg-white/20 hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.1)]' 
+                      : 'bg-brand-dark border-white/5 text-brand-muted opacity-40 cursor-not-allowed'}`}
+                  title="Reset to Core Baseline"
+                >
+                  <RotateCcw size={20} className={activeLeft !== 'default' || activeRight !== 'default' ? 'animate-[spin_4s_linear_infinite]' : ''} />
+                  <span className="text-[9px] font-extrabold uppercase tracking-widest hidden md:block">Reset</span>
                 </button>
               </div>
 
               {/* Internal Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-[45%]">
                 <button 
                   onClick={() => handleRightClick('sop')}
-                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeRight === 'sop' ? 'bg-brand-accent/20 border-brand-accent text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-accent/50 hover:text-white'}`}
+                  className={`flex-1 py-4 px-4 lg:px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeRight === 'sop' ? 'bg-brand-accent/20 border-brand-accent text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-accent/50 hover:text-white'}`}
                 >
-                  <Briefcase size={20} /> Routine S&OP
+                  <Briefcase size={18} /> Routine S&OP
                 </button>
                 <button 
                   onClick={() => handleRightClick('npl')}
-                  className={`flex-1 py-4 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeRight === 'npl' ? 'bg-brand-accent/20 border-brand-accent text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-accent/50 hover:text-white'}`}
+                  className={`flex-1 py-4 px-4 lg:px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all border ${activeRight === 'npl' ? 'bg-brand-accent/20 border-brand-accent text-white shadow-[0_0_20px_rgba(239,68,68,0.3)]' : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-accent/50 hover:text-white'}`}
                 >
-                  <TrendingUp size={20} /> New Product Launch
+                  <TrendingUp size={18} /> New Product Launch
                 </button>
               </div>
+              
             </div>
 
             {/* Vertical Symmetric Fishbone Timeline */}
             <div className="max-w-6xl mx-auto relative hidden md:block">
-              {/* Central Spine Line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-brand-accent -translate-x-1/2 opacity-50 rounded-full"></div>
+              {/* Central Continuous Spine Line */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-purple-500 via-blue-500 to-emerald-500 -translate-x-1/2 opacity-30 rounded-full z-0"></div>
               
-              <div className="space-y-12">
-                
-                {/* Node: Lock 1 */}
-                <div className="relative flex items-center justify-center w-full group">
-                  <div className="absolute left-1/2 w-10 h-10 rounded-full bg-brand-dark border-4 border-purple-500 -translate-x-1/2 z-10 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.5)]">
-                    <Lock size={16} className="text-purple-400" />
-                  </div>
-                  <div className="w-1/2 pr-16 text-right">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeLeft !== 'default' ? 'bg-blue-500/10 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.1)]' : 'bg-brand-dark border-white/10'}`}>
-                        <div className="text-xs font-bold text-blue-400 mb-2 tracking-widest uppercase">{t.lblLock1[lang]} (External)</div>
-                        <div className={`font-medium ${activeLeft !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{leftData.l1[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="w-1/2 pl-16 text-left">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeRight !== 'default' ? 'bg-brand-accent/10 border-brand-accent/50 shadow-[0_0_20px_rgba(239,68,68,0.1)]' : 'bg-brand-dark border-white/10'}`}>
-                        <div className="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">{t.lblLock1[lang]} (Internal)</div>
-                        <div className={`font-medium ${activeRight !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{rightData.l1[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-
-                {/* Node: Lock 2 */}
-                <div className="relative flex items-center justify-center w-full group">
-                  <div className="absolute left-1/2 w-10 h-10 rounded-full bg-brand-dark border-4 border-purple-500 -translate-x-1/2 z-10 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.5)]">
-                    <Lock size={16} className="text-purple-400" />
-                  </div>
-                  <div className="w-1/2 pr-16 text-right">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeLeft !== 'default' ? 'bg-blue-500/10 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.1)]' : 'bg-brand-dark border-white/10'}`}>
-                        <div className="text-xs font-bold text-blue-400 mb-2 tracking-widest uppercase">{t.lblLock2[lang]} (External)</div>
-                        <div className={`font-medium ${activeLeft !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{leftData.l2[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="w-1/2 pl-16 text-left">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeRight !== 'default' ? 'bg-brand-accent/10 border-brand-accent/50 shadow-[0_0_20px_rgba(239,68,68,0.1)]' : 'bg-brand-dark border-white/10'}`}>
-                        <div className="text-xs font-bold text-brand-accent mb-2 tracking-widest uppercase">{t.lblLock2[lang]} (Internal)</div>
-                        <div className={`font-medium ${activeRight !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{rightData.l2[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-
-                {/* Node: Pillar 1 */}
-                <div className="relative flex items-center justify-center w-full">
-                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
-                  <div className="w-1/2 pr-16 text-right">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP1[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p1[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="w-1/2 pl-16 text-left">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP1[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p1[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-
-                {/* Node: Pillar 2 */}
-                <div className="relative flex items-center justify-center w-full">
-                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
-                  <div className="w-1/2 pr-16 text-right">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP2[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p2[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="w-1/2 pl-16 text-left">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP2[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p2[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-
-                {/* Node: Pillar 3 */}
-                <div className="relative flex items-center justify-center w-full">
-                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
-                  <div className="w-1/2 pr-16 text-right">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP3[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p3[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="w-1/2 pl-16 text-left">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP3[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p3[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-
-                {/* Node: Pillar 4 */}
-                <div className="relative flex items-center justify-center w-full">
-                  <div className="absolute left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-white/30 -translate-x-1/2 z-10"></div>
-                  <div className="w-1/2 pr-16 text-right">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeLeft !== 'default' ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP4[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeLeft !== 'default' ? 'text-blue-100' : 'text-brand-muted'}`}>{leftData.p4[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="w-1/2 pl-16 text-left">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-5 rounded-xl border transition-all ${activeRight !== 'default' ? 'border-brand-accent/30 bg-brand-accent/5' : 'border-white/5 bg-brand-card/50'}`}>
-                        <div className="text-xs font-bold text-brand-muted mb-1 uppercase">{t.lblP4[lang]}</div>
-                        <div className={`text-sm leading-relaxed ${activeRight !== 'default' ? 'text-red-100' : 'text-brand-muted'}`}>{rightData.p4[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-
-                {/* Node: Pillar 5 (End) */}
-                <div className="relative flex items-center justify-center w-full">
-                  <div className="absolute left-1/2 w-10 h-10 rounded-full bg-brand-dark border-4 border-emerald-500 -translate-x-1/2 z-10 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.5)]">
-                    <CheckCircle size={16} className="text-emerald-400" />
-                  </div>
-                  <div className="w-1/2 pr-16 text-right">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeLeft} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeLeft !== 'default' ? 'bg-blue-500/10 border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.1)]' : 'bg-brand-dark border-emerald-500/30'}`}>
-                        <div className="text-xs font-bold text-emerald-400 mb-2 tracking-widest uppercase">{t.lblP5[lang]} (External)</div>
-                        <div className={`font-medium ${activeLeft !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{leftData.p5[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="w-1/2 pl-16 text-left">
-                    <AnimatePresence mode="wait">
-                      <motion.div key={activeRight} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.2}} className={`p-6 rounded-2xl border transition-all ${activeRight !== 'default' ? 'bg-brand-accent/10 border-brand-accent/50 shadow-[0_0_20px_rgba(239,68,68,0.1)]' : 'bg-brand-dark border-emerald-500/30'}`}>
-                        <div className="text-xs font-bold text-emerald-400 mb-2 tracking-widest uppercase">{t.lblP5[lang]} (Internal)</div>
-                        <div className={`font-medium ${activeRight !== 'default' ? 'text-white' : 'text-brand-muted'}`}>{rightData.p5[lang]}</div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-
+              <div className="space-y-4">
+                <FishboneNode title={t.lblLock1[lang]} icon={Lock} leftContent={leftData.l1[lang]} rightContent={rightData.l1[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="purple" />
+                <FishboneNode title={t.lblLock2[lang]} icon={Lock} leftContent={leftData.l2[lang]} rightContent={rightData.l2[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="purple" />
+                <FishboneNode title={t.lblP1[lang]} icon={Target} leftContent={leftData.p1[lang]} rightContent={rightData.p1[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+                <FishboneNode title={t.lblP2[lang]} icon={Target} leftContent={leftData.p2[lang]} rightContent={rightData.p2[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+                <FishboneNode title={t.lblP3[lang]} icon={Target} leftContent={leftData.p3[lang]} rightContent={rightData.p3[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+                <FishboneNode title={t.lblP4[lang]} icon={Target} leftContent={leftData.p4[lang]} rightContent={rightData.p4[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+                <FishboneNode title={t.lblP5[lang]} icon={CheckCircle} leftContent={leftData.p5[lang]} rightContent={rightData.p5[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="emerald" />
               </div>
             </div>
 
             {/* Mobile Fallback - Stacked */}
-            <div className="md:hidden space-y-12">
-              <div className="bg-brand-card/50 p-6 rounded-3xl border border-blue-500/30">
-                <h3 className="text-xl font-bold text-blue-400 mb-6">{t.externalTitle[lang]}</h3>
-                <div className="space-y-6">
-                  <div><span className="text-xs font-bold text-blue-400 uppercase tracking-widest">{t.lblLock1[lang]}</span><p className="mt-1 text-white">{leftData.l1[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-blue-400 uppercase tracking-widest">{t.lblLock2[lang]}</span><p className="mt-1 text-white">{leftData.l2[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP1[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p1[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP2[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p2[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP3[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p3[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP4[lang]}</span><p className="mt-1 text-brand-muted">{leftData.p4[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">{t.lblP5[lang]}</span><p className="mt-1 text-white">{leftData.p5[lang]}</p></div>
-                </div>
-              </div>
-              <div className="bg-brand-card/50 p-6 rounded-3xl border border-brand-accent/30">
-                <h3 className="text-xl font-bold text-brand-accent mb-6">{t.internalTitle[lang]}</h3>
-                <div className="space-y-6">
-                  <div><span className="text-xs font-bold text-brand-accent uppercase tracking-widest">{t.lblLock1[lang]}</span><p className="mt-1 text-white">{rightData.l1[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-accent uppercase tracking-widest">{t.lblLock2[lang]}</span><p className="mt-1 text-white">{rightData.l2[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP1[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p1[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP2[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p2[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP3[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p3[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-brand-muted uppercase">{t.lblP4[lang]}</span><p className="mt-1 text-brand-muted">{rightData.p4[lang]}</p></div>
-                  <div><span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">{t.lblP5[lang]}</span><p className="mt-1 text-white">{rightData.p5[lang]}</p></div>
-                </div>
-              </div>
+            <div className="md:hidden space-y-6 relative">
+              <FishboneNode title={t.lblLock1[lang]} icon={Lock} leftContent={leftData.l1[lang]} rightContent={rightData.l1[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="purple" />
+              <FishboneNode title={t.lblLock2[lang]} icon={Lock} leftContent={leftData.l2[lang]} rightContent={rightData.l2[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="purple" />
+              <FishboneNode title={t.lblP1[lang]} icon={Target} leftContent={leftData.p1[lang]} rightContent={rightData.p1[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+              <FishboneNode title={t.lblP2[lang]} icon={Target} leftContent={leftData.p2[lang]} rightContent={rightData.p2[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+              <FishboneNode title={t.lblP3[lang]} icon={Target} leftContent={leftData.p3[lang]} rightContent={rightData.p3[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+              <FishboneNode title={t.lblP4[lang]} icon={Target} leftContent={leftData.p4[lang]} rightContent={rightData.p4[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="blue" />
+              <FishboneNode title={t.lblP5[lang]} icon={CheckCircle} leftContent={leftData.p5[lang]} rightContent={rightData.p5[lang]} leftActive={activeLeft !== 'default'} rightActive={activeRight !== 'default'} colorName="emerald" />
             </div>
             
           </FadeIn>
