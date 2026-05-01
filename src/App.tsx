@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box } from 'lucide-react';
+import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -68,6 +68,26 @@ const t = {
   
   coreTitle: { en: "Core: Inventory Optimization", zh: "核心：库存战略模型" },
   coreDesc: { en: "Calculating Safety Stock, EOQ, and Reorder Points (ROP) to balance high service levels with minimal working capital tied up in excess.", zh: "精准运用安全库存、经济订货批量 (EOQ) 与订货点 (ROP) 模型，在保障高履约率与降低资金占用之间取得极致平衡。" },
+
+  // 2L-5P NPL Framework
+  nplTitle: { en: "The '2L-5P' NPL Alignment Methodology", zh: "跨部门协同：新产品发布 (NPL) 「两锁定·五保证」法则" },
+  nplDesc: { en: "A proprietary methodology I use to bridge the gap between Sales ambitions and Supply Chain realities during New Product Launches (NPLs) and major promotions.", zh: "这是我用于新产品发布 (NPL) 和大型促销期间的实战方法论，旨在打破部门壁垒，无缝缝合“前端销售目标”与“后端供应链现实”。" },
+  
+  nplLock1: { en: "Lock Stakeholders", zh: "锁定人群" },
+  nplLock1Desc: { en: "Identify and align cross-functional partners (Sales, Marketing, Operations).", zh: "明确并对齐跨部门利益相关者（销售、营销、仓储运营），确认权责边界。" },
+  nplLock2: { en: "Lock Goals", zh: "锁定目标" },
+  nplLock2Desc: { en: "Align on precise volume forecasts and firm launch timelines.", zh: "就精确的销售预测体量和明确的发布时间表达成共识，锁定目标底线。" },
+  
+  nplP1: { en: "Commitment", zh: "有承诺" },
+  nplP1Desc: { en: "Secure firm capacity and lead-time commitments from vendors.", zh: "确保上游供应商端对产能和交货期的硬性承诺。" },
+  nplP2: { en: "Support", zh: "有支持" },
+  nplP2Desc: { en: "Ensure physical space readiness and system (NetSuite) training.", zh: "提供系统培训支持，确保仓储物理空间及系统底层逻辑就绪。" },
+  nplP3: { en: "Kick-off", zh: "有启动" },
+  nplP3Desc: { en: "Conduct formal alignment meetings to clear all operational blind spots.", zh: "通过正式启动会 (Kick-off) 和深度面谈，消除所有操作执行中的盲区。" },
+  nplP4: { en: "Incentive", zh: "有激励" },
+  nplP4Desc: { en: "Establish shared KPIs (e.g., in-stock rate vs. obsolescence).", zh: "建立跨部门共享的 KPI（如现货率与呆滞库存比例），打破部门博弈壁垒。" },
+  nplP5: { en: "Evaluation", zh: "有追踪" },
+  nplP5Desc: { en: "Track post-launch depletion rates aggressively to pivot replenishment.", zh: "密集追踪发布后的实际消耗率 (Depletion Rate)，并动态评估、调整补货策略。" },
 
   // 60-Day Matrix
   planTitle: { en: "The 90-Day Action Matrix", zh: "首发 90 天行动计划 (90-Day Matrix)" },
@@ -265,7 +285,7 @@ function App() {
             </p>
           </div>
           
-          <div className="relative">
+          <div className="relative mb-24">
             {/* Visual Connecting Lines (Desktop) */}
             <div className="absolute top-1/2 left-[15%] w-[70%] h-[2px] bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent -translate-y-1/2 hidden lg:block z-0"></div>
             <div className="absolute top-[15%] left-1/2 w-[2px] h-[70%] bg-gradient-to-b from-transparent via-brand-accent/30 to-transparent -translate-x-1/2 hidden lg:block z-0"></div>
@@ -316,9 +336,71 @@ function App() {
                   <p className="text-brand-muted leading-relaxed">{t.downstreamDesc[lang]}</p>
                 </div>
               </FadeIn>
-
             </div>
           </div>
+
+          {/* 2L-5P Framework Banner integrated seamlessly below Blueprint */}
+          <FadeIn delay={0.5}>
+            <div className="max-w-5xl mx-auto bg-gradient-to-r from-brand-card via-brand-dark to-brand-card border border-brand-accent/20 rounded-3xl p-8 md:p-12 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+              <div className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-10 border-b border-white/10 pb-8">
+                <div className="w-16 h-16 rounded-2xl bg-brand-accent/20 text-brand-accent flex items-center justify-center shrink-0">
+                  <Target size={32} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{t.nplTitle[lang]}</h3>
+                  <p className="text-brand-muted text-lg leading-relaxed">{t.nplDesc[lang]}</p>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-12">
+                {/* 2 Locks */}
+                <div>
+                  <h4 className="text-brand-accent font-bold uppercase tracking-wider mb-6 text-sm flex items-center gap-2">
+                    <Lock size={16} /> 2 Locks (两锁定)
+                  </h4>
+                  <ul className="space-y-6">
+                    <li>
+                      <div className="font-bold text-white mb-1">{t.nplLock1[lang]}</div>
+                      <div className="text-sm text-brand-muted">{t.nplLock1Desc[lang]}</div>
+                    </li>
+                    <li>
+                      <div className="font-bold text-white mb-1">{t.nplLock2[lang]}</div>
+                      <div className="text-sm text-brand-muted">{t.nplLock2Desc[lang]}</div>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* 5 Pillars */}
+                <div>
+                  <h4 className="text-emerald-400 font-bold uppercase tracking-wider mb-6 text-sm flex items-center gap-2">
+                    <CheckCircle size={16} /> 5 Pillars (五保证)
+                  </h4>
+                  <ul className="space-y-4">
+                    <li className="grid grid-cols-[100px_1fr] gap-4">
+                      <div className="font-bold text-white">{t.nplP1[lang]}</div>
+                      <div className="text-sm text-brand-muted">{t.nplP1Desc[lang]}</div>
+                    </li>
+                    <li className="grid grid-cols-[100px_1fr] gap-4">
+                      <div className="font-bold text-white">{t.nplP2[lang]}</div>
+                      <div className="text-sm text-brand-muted">{t.nplP2Desc[lang]}</div>
+                    </li>
+                    <li className="grid grid-cols-[100px_1fr] gap-4">
+                      <div className="font-bold text-white">{t.nplP3[lang]}</div>
+                      <div className="text-sm text-brand-muted">{t.nplP3Desc[lang]}</div>
+                    </li>
+                    <li className="grid grid-cols-[100px_1fr] gap-4">
+                      <div className="font-bold text-white">{t.nplP4[lang]}</div>
+                      <div className="text-sm text-brand-muted">{t.nplP4Desc[lang]}</div>
+                    </li>
+                    <li className="grid grid-cols-[100px_1fr] gap-4">
+                      <div className="font-bold text-white">{t.nplP5[lang]}</div>
+                      <div className="text-sm text-brand-muted">{t.nplP5Desc[lang]}</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
         </FadeIn>
       </section>
 
