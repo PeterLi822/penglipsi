@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Briefcase, GitMerge, Layers } from 'lucide-react';
+import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -53,15 +53,21 @@ const t = {
   star2Action: { en: "By assessing floor capacity against incoming demand, I proactively identified risks of excess and shorts. I adjusted PO timings and negotiated directly with vendors to delay or expedite shipments.", zh: "通过比对仓库产能与需求预测，我主动识别了爆仓或短缺风险。我及时调整 PO 节奏，并直接与供应商交涉推迟或加急发货。" },
   star2Result: { en: "Result: Prevented stockouts during peak seasons while avoiding warehousing overflow (Matching JD: 'Daily inventory assessments to determine shorts, risks, and excess').", zh: "结果：在旺季有效防止了断货，同时避免了不必要的仓库爆仓 (直接对标 JD: '进行每日库存评估，以确定短缺、风险和过剩')。" },
 
-  // Knowledge Capabilities
-  knowledgeTitle: { en: "Supply Planning Framework & Methodologies", zh: "供应链规划知识体系与方法论" },
-  knowledgeDesc: { en: "Beyond my hands-on experience, I have built a solid theoretical foundation in modern supply planning methodologies.", zh: "在丰富的实操经验之外，我也构建了扎实的现代供应链规划与库存管理的知识体系。" },
-  k1Title: { en: "Inventory Strategy & Optimization", zh: "库存战略与优化" },
-  k1Desc: { en: "Deep understanding of Safety Stock calculations, Economic Order Quantity (EOQ), and Reorder Point (ROP) modeling.", zh: "深刻理解安全库存 (Safety Stock) 的计算逻辑、经济订货批量 (EOQ) 以及订货点 (ROP) 建模。" },
-  k2Title: { en: "S&OP Alignment", zh: "产销协同规划 (S&OP)" },
-  k2Desc: { en: "Balancing demand forecasts with supply constraints, and synchronizing with Marketing and Sales for New Product Launches.", zh: "能够平衡需求预测与供应限制，并在新产品发布阶段与营销和销售团队保持紧密同步。" },
-  k3Title: { en: "Supplier Risk & Performance Management", zh: "供应商风险与绩效管理" },
-  k3Desc: { en: "Strategies for mitigating lead-time volatility, monitoring vendor compliance, and evaluating MOQ trade-offs.", zh: "掌握缓解交货期波动、监控供应商合规性以及评估最小起订量 (MOQ) 权衡的综合策略。" },
+  // Knowledge Blueprint (Diagram Layout)
+  knowledgeTitle: { en: "The Core Competency Blueprint", zh: "核心能力与知识体系蓝图" },
+  knowledgeDesc: { en: "A structured framework bridging theoretical planning methodologies with my hands-on operations and systems integration expertise.", zh: "将系统的供应链计划理论（如需求预测框架）与我扎实的一线运营及系统架构经验相融合的底层蓝图。" },
+  
+  hubTitle: { en: "Data Control Tower (WMS/ERP)", zh: "系统底层与数据控制塔" },
+  hubDesc: { en: "The central hub. Ensuring 99.9% data integrity through strict cycle counts and system workflows to feed accurate master data into planning models.", zh: "中枢节点。通过主导系统实施与底层逻辑配置，确保极高的数据准确率，为所有预测与计划模型提供绝对可靠的基石。" },
+  
+  upstreamTitle: { en: "Upstream: Supplier Management", zh: "上游：供应商协同与风险" },
+  upstreamDesc: { en: "Mitigating lead-time volatility, monitoring compliance, and optimizing MOQ constraints through deep integration and communication.", zh: "控制交货期波动风险，监控供应商合规性，并通过无缝沟通优化最小起订量 (MOQ) 约束。" },
+  
+  downstreamTitle: { en: "Downstream: S&OP & Demand", zh: "下游：需求预测与产销协同" },
+  downstreamDesc: { en: "Translating historical depletion data into forecasting frameworks. Synchronizing supply availability with Marketing NPLs (New Product Launches).", zh: "利用结构化框架进行需求预测 (Forecasting Framework)。确保供应链能力与销售推广及新产品发布 (NPL) 的节奏同频。" },
+  
+  coreTitle: { en: "Core: Inventory Optimization", zh: "核心：库存战略模型" },
+  coreDesc: { en: "Calculating Safety Stock, EOQ, and Reorder Points (ROP) to balance high service levels with minimal working capital tied up in excess.", zh: "精准运用安全库存、经济订货批量 (EOQ) 与订货点 (ROP) 模型，在保障高履约率与降低资金占用之间取得极致平衡。" },
 
   // 60-Day Matrix
   planTitle: { en: "The 90-Day Action Matrix", zh: "首发 90 天行动计划 (90-Day Matrix)" },
@@ -249,44 +255,69 @@ function App() {
         </div>
       </section>
 
-      {/* Knowledge Section (Moved up) */}
-      <section className="py-24 px-6 max-w-6xl mx-auto">
+      {/* Blueprint Diagram Section */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
         <FadeIn>
-          <div className="max-w-4xl mx-auto text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t.knowledgeTitle[lang]}</h2>
             <p className="text-brand-muted text-lg leading-relaxed">
               {t.knowledgeDesc[lang]}
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            <FadeIn delay={0.1}>
-              <div className="bg-brand-card p-8 rounded-3xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-lg hover:shadow-brand-accent/10 h-full">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
-                  <Layers size={28} />
+          <div className="relative">
+            {/* Visual Connecting Lines (Desktop) */}
+            <div className="absolute top-1/2 left-[15%] w-[70%] h-[2px] bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent -translate-y-1/2 hidden lg:block z-0"></div>
+            <div className="absolute top-[15%] left-1/2 w-[2px] h-[70%] bg-gradient-to-b from-transparent via-brand-accent/30 to-transparent -translate-x-1/2 hidden lg:block z-0"></div>
+            
+            <div className="grid lg:grid-cols-3 gap-8 relative z-10">
+              
+              {/* Left: Upstream */}
+              <FadeIn delay={0.1}>
+                <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl hover:border-brand-accent/40 transition-all lg:mt-32">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
+                    <Network size={28} />
+                  </div>
+                  <h4 className="text-white font-bold text-xl mb-4">{t.upstreamTitle[lang]}</h4>
+                  <p className="text-brand-muted leading-relaxed">{t.upstreamDesc[lang]}</p>
                 </div>
-                <h4 className="text-white font-bold text-lg mb-3">{t.k1Title[lang]}</h4>
-                <p className="text-sm text-brand-muted leading-relaxed">{t.k1Desc[lang]}</p>
+              </FadeIn>
+
+              {/* Center: The Core / Control Tower */}
+              <div className="space-y-8 relative z-20">
+                <FadeIn delay={0.2}>
+                  <div className="bg-gradient-to-b from-brand-accent/10 to-brand-card p-8 rounded-3xl border-2 border-brand-accent/40 shadow-[0_0_40px_rgba(239,68,68,0.15)] text-center transform hover:scale-105 transition-transform">
+                    <div className="w-16 h-16 rounded-2xl bg-brand-accent/20 flex items-center justify-center text-brand-accent mb-6 mx-auto">
+                      <Database size={32} />
+                    </div>
+                    <h4 className="text-white font-bold text-2xl mb-4">{t.hubTitle[lang]}</h4>
+                    <p className="text-brand-muted leading-relaxed font-medium">{t.hubDesc[lang]}</p>
+                  </div>
+                </FadeIn>
+
+                <FadeIn delay={0.3}>
+                  <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl hover:border-brand-accent/40 transition-all text-center">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-transparent flex items-center justify-center text-emerald-400 mb-6 mx-auto border border-emerald-500/20">
+                      <Box size={24} />
+                    </div>
+                    <h4 className="text-white font-bold text-xl mb-4">{t.coreTitle[lang]}</h4>
+                    <p className="text-brand-muted leading-relaxed">{t.coreDesc[lang]}</p>
+                  </div>
+                </FadeIn>
               </div>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <div className="bg-brand-card p-8 rounded-3xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-lg hover:shadow-brand-accent/10 h-full">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
-                  <GitMerge size={28} />
+
+              {/* Right: Downstream */}
+              <FadeIn delay={0.4}>
+                <div className="bg-brand-card/90 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl hover:border-brand-accent/40 transition-all lg:mt-32">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-transparent flex items-center justify-center text-purple-400 mb-6 border border-purple-500/20">
+                    <TrendingUp size={28} />
+                  </div>
+                  <h4 className="text-white font-bold text-xl mb-4">{t.downstreamTitle[lang]}</h4>
+                  <p className="text-brand-muted leading-relaxed">{t.downstreamDesc[lang]}</p>
                 </div>
-                <h4 className="text-white font-bold text-lg mb-3">{t.k2Title[lang]}</h4>
-                <p className="text-sm text-brand-muted leading-relaxed">{t.k2Desc[lang]}</p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="bg-brand-card p-8 rounded-3xl border border-white/10 hover:border-brand-accent/50 transition-all shadow-lg hover:shadow-brand-accent/10 h-full">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-transparent flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
-                  <Briefcase size={28} />
-                </div>
-                <h4 className="text-white font-bold text-lg mb-3">{t.k3Title[lang]}</h4>
-                <p className="text-sm text-brand-muted leading-relaxed">{t.k3Desc[lang]}</p>
-              </div>
-            </FadeIn>
+              </FadeIn>
+
+            </div>
           </div>
         </FadeIn>
       </section>
