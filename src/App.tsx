@@ -244,6 +244,55 @@ function App() {
         </div>
       </section>
 
+      {/* The POP 7.0 Personality Matrix */}
+      <section className="py-24 px-6 max-w-6xl mx-auto">
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.traitSectionTitle[lang]}</h2>
+            <p className="text-brand-muted font-medium bg-white/5 inline-block px-4 py-1.5 rounded-full border border-white/10">{t.traitSectionDesc[lang]}</p>
+          </div>
+        </FadeIn>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <FadeIn delay={0.1}>
+            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
+                <Target size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">{t.trait1Title[lang]}</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">{t.trait1Desc[lang]}</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
+                <BarChart2 size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">{t.trait2Title[lang]}</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">{t.trait2Desc[lang]}</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
+                <ShieldAlert size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">{t.trait3Title[lang]}</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">{t.trait3Desc[lang]}</p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.4}>
+            <div className="bg-brand-card p-8 rounded-3xl border border-white/10 h-full hover:border-brand-accent/50 transition-colors shadow-lg hover:shadow-brand-accent/10">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent/20 to-transparent flex items-center justify-center text-brand-accent mb-6 border border-brand-accent/20">
+                <MessageSquare size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-4">{t.trait4Title[lang]}</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">{t.trait4Desc[lang]}</p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Blueprint Diagram Section */}
       <section className="pt-24 pb-12 px-6 max-w-7xl mx-auto">
         <FadeIn>
