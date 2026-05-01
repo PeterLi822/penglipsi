@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle, Users, Truck, Briefcase, RotateCcw } from 'lucide-react';
+import { ArrowRight, ChevronRight, Globe, Target, BarChart2, ShieldAlert, MessageSquare, Database, Network, TrendingUp, Box, Lock, CheckCircle, CheckCircle2, Users, Truck, Briefcase, RotateCcw } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <motion.div
@@ -131,20 +131,28 @@ const t = {
     }
   },
 
+  // STAR Experience
+  starTitle: { en: "Experience in Action (STAR)", zh: "实战经验 (STAR 法则)" },
+  starDesc: { en: "Real examples of how my operational background solves supply planning challenges.", zh: "我的运营背景如何解决实际供应链计划挑战的真实案例。" },
+  star1Context: { en: "Inventory Data & WMS (The Challenge)", zh: "库存数据与 WMS (挑战)" },
+  star1Action: { en: "We faced severe inventory inaccuracies. I mapped out the existing flaws and led the implementation of a new WMS, establishing strict cycle counting protocols and data structuring.", zh: "面对严重的库存数据不准，我梳理了现有缺陷，主导了新 WMS 系统的实施，并建立了严格的周期盘点协议和数据结构。" },
+  star1Result: { en: "Resulted in high system-to-physical accuracy, providing a reliable foundation for all future replenishment decisions.", zh: "实现了极高的账物相符率，为所有后续的补货决策提供了可靠的数据基础。" },
+  star2Context: { en: "Replenishment Rhythms (The Action)", zh: "补货节奏把控 (行动)" },
+  star2Action: { en: "By assessing floor capacity against incoming demand, I identified risks of excess and shorts, adjusting PO timings and communicating with vendors to delay or expedite shipments.", zh: "通过比对仓库产能与需求预测，我主动识别了爆仓或短缺风险，及时调整 PO 节奏，并与供应商沟通推迟或加急发货。" },
+  star2Result: { en: "Prevented stockouts during peak seasons while avoiding unnecessary warehousing overflow.", zh: "在旺季有效防止了断货，同时避免了不必要的爆仓。" },
+
   // 60-Day Matrix
-  planTitle: { en: "The 90-Day Action Matrix", zh: "首发 90 天行动计划" },
-  planDesc: { en: "My structured plan to hit the ground running at Pacific Smoke. Core principle: Establish stable structures before pursuing speed.", zh: "我在 Pacific Smoke 快速产生价值的结构化入职计划。核心原则：在追求速度之前，优先建立稳定的数据与沟通结构。" },
-  plan30Title: { en: "Phase 1: Assess & Learn (Days 1-30)", zh: "阶段一：评估与建联 (Days 1-30)" },
-  plan30_1: { en: "Master NetSuite parameters: Item Master Data, lead times, MOQ, and safety stock logics.", zh: "精通 NetSuite 参数：物料主数据、交货期、MOQ 和安全库存逻辑。" },
-  plan30_2: { en: "Evaluate the current inventory health (shorts, risks, excess) of my assigned brands.", zh: "全面评估我负责的品牌目前的库存健康度（短缺、风险、过剩）。" },
-  plan30_3: { en: "Establish communication lines with key international suppliers in China.", zh: "与核心国际供应商（中国）建立稳固的沟通与信任渠道。" },
-  plan60Title: { en: "Phase 2: Analyze & Optimize (Days 31-60)", zh: "阶段二：分析与优化 (Days 31-60)" },
-  plan60_1: { en: "Take ownership of the bi-weekly replenishment cycle and process Purchase Orders independently.", zh: "全面接手并独立执行双周补货循环，处理各项采购订单 (PO)。" },
-  plan60_2: { en: "Identify aged/obsolescence inventory and propose liquidation strategies.", zh: "识别呆滞库存，并向销售部门提出清库存策略建议。" },
-  plan60_3: { en: "Analyze vendor performance metrics to identify bottlenecks in lead times.", zh: "分析供应商绩效指标，找出交货期中的核心瓶颈并着手优化。" },
-  plan90Title: { en: "Phase 3: Improve & Report (Days 61-90)", zh: "阶段三：持续迭代 (Days 61-90)" },
-  plan90_1: { en: "Present the first comprehensive Vendor Compliance Report to the Supply Planning Manager.", zh: "向供应链计划经理提交第一份全面的《供应商合规与表现报告》。" },
-  plan90_2: { en: "Coordinate inventory plans for upcoming New Product Launches (NPL) aligning supply with demand.", zh: "统筹即将到来的新产品发布 (NPL) 的前置库存计划，确保供需完美平衡。" }
+  planTitle: { en: "The 60-Day Action Matrix", zh: "极速入职 60 天行动计划" },
+  planDesc: { en: "My aggressive plan to hit the ground running at Pacific Smoke.", zh: "我在 Pacific Smoke 极速产生价值的结构化入职计划。" },
+  plan30Title: { en: "Phase 1: Assess & Takeover (Days 1-30)", zh: "阶段一：评估与接管 (Days 1-30)" },
+  plan30_1: { en: "Master NetSuite item logics and evaluate inventory health (shorts, excess) of assigned brands.", zh: "精通 NetSuite 参数逻辑，并全面评估我负责品牌目前的库存健康度（短缺、风险、过剩）。" },
+  plan30_2: { en: "Establish solid communication lines with key international suppliers and internal sales teams.", zh: "与核心国际供应商（中国）及内部销售团队建立稳固的沟通与信任渠道。" },
+  plan30_3: { en: "Take ownership of the routine bi-weekly replenishment cycle and process POs independently.", zh: "全面接手并独立执行双周补货循环，处理各项常规采购订单 (PO)。" },
+  plan60Title: { en: "Phase 2: Optimize & Report (Days 31-60)", zh: "阶段二：优化与赋能 (Days 31-60)" },
+  plan60_1: { en: "Identify obsolescence inventory and propose proactive liquidation strategies to Sales.", zh: "识别呆滞库存，并向销售部门主动提出清库存或促销策略建议。" },
+  plan60_2: { en: "Produce Vendor Compliance Dashboards to identify bottlenecks and optimize lead times.", zh: "产出并提交《供应商合规与表现报告》，找出交货期瓶颈并着手优化。" },
+  plan60_3: { en: "Fully integrate with the NPL process, aligning initial launch supply with budgets.", zh: "全面统筹即将到来的新产品发布 (NPL) 库存计划，确保供需完美平衡。" },
+  planClosing: { en: "I am fully prepared to transition my operational foundation into your strategic Supply Planning team.", zh: "我已经准备好，将我扎实的一线运营经验转化为 Pacific Smoke 团队所需的战略级计划能力。" }
 };
 
 type LeftScenario = 'default' | 'vendor' | 'customer';
@@ -428,6 +436,44 @@ function App() {
         </FadeIn>
       </section>
 
+      {/* Experience in Action (STAR) */}
+      <section className="py-24 px-6 bg-brand-dark border-t border-white/5 relative">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.starTitle[lang]}</h2>
+              <p className="text-brand-muted font-medium bg-white/5 inline-block px-4 py-1.5 rounded-full border border-white/10">{t.starDesc[lang]}</p>
+            </div>
+          </FadeIn>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <FadeIn delay={0.1}>
+              <div className="bg-brand-card border border-white/10 p-8 rounded-3xl shadow-lg relative overflow-hidden group hover:border-brand-accent/50 transition-colors h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                <h3 className="text-xl font-bold text-brand-accent mb-4">{t.star1Context[lang]}</h3>
+                <p className="text-white leading-relaxed mb-6">{t.star1Action[lang]}</p>
+                <div className="flex gap-3 bg-brand-dark p-5 rounded-2xl border border-white/5">
+                  <CheckCircle2 className="text-emerald-400 shrink-0 mt-0.5" size={20} />
+                  <p className="text-sm font-medium text-brand-muted leading-relaxed">{t.star1Result[lang]}</p>
+                </div>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="bg-brand-card border border-white/10 p-8 rounded-3xl shadow-lg relative overflow-hidden group hover:border-brand-accent/50 transition-colors h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                <h3 className="text-xl font-bold text-brand-accent mb-4">{t.star2Context[lang]}</h3>
+                <p className="text-white leading-relaxed mb-6">{t.star2Action[lang]}</p>
+                <div className="flex gap-3 bg-brand-dark p-5 rounded-2xl border border-white/5">
+                  <CheckCircle2 className="text-emerald-400 shrink-0 mt-0.5" size={20} />
+                  <p className="text-sm font-medium text-brand-muted leading-relaxed">{t.star2Result[lang]}</p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Interactive 2L-5P Matrix (Symmetric Timeline) */}
       <section className="py-24 px-6 bg-brand-card/30 border-y border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
@@ -536,8 +582,9 @@ function App() {
         </div>
       </section>
 
-      {/* 90-Day Matrix (Moved to bottom) */}
-      <section className="py-24 px-6 bg-brand-dark border-t border-white/5">
+      {/* 60-Day Matrix (Moved to bottom) */}
+      <section className="py-24 px-6 bg-brand-dark border-t border-white/5 relative">
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent"></div>
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="text-center mb-20">
@@ -546,7 +593,7 @@ function App() {
             </div>
           </FadeIn>
 
-          <div className="space-y-6">
+          <div className="space-y-6 mb-16">
             <FadeIn delay={0.1}>
               <div className="flex flex-col md:flex-row gap-6 relative group">
                 <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
@@ -576,21 +623,16 @@ function App() {
                 </div>
               </div>
             </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <div className="flex flex-col md:flex-row gap-6 relative group">
-                <div className="md:w-64 shrink-0 flex items-center md:justify-end md:pr-8 md:border-r-2 border-brand-accent/30 group-hover:border-brand-accent transition-colors">
-                  <h3 className="text-xl font-bold text-brand-accent">{t.plan90Title[lang]}</h3>
-                </div>
-                <div className="bg-brand-card border border-white/10 p-8 rounded-3xl flex-1 shadow-lg group-hover:border-white/20 transition-all">
-                  <ul className="space-y-4 text-brand-muted">
-                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_1[lang]}</span></li>
-                    <li className="flex gap-4"><ChevronRight className="text-brand-accent shrink-0 mt-0.5" size={20}/> <span className="leading-relaxed">{t.plan90_2[lang]}</span></li>
-                  </ul>
-                </div>
-              </div>
-            </FadeIn>
           </div>
+          
+          <FadeIn delay={0.3}>
+            <div className="text-center bg-gradient-to-r from-transparent via-brand-accent/10 to-transparent p-8 rounded-3xl border border-brand-accent/20 max-w-3xl mx-auto shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+              <p className="text-lg md:text-xl text-white font-bold tracking-wide">
+                "{t.planClosing[lang]}"
+              </p>
+            </div>
+          </FadeIn>
+
         </div>
       </section>
 
