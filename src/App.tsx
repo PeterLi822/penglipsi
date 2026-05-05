@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FloatingAIAssistant from './FloatingAIAssistant';
 
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -1378,6 +1379,9 @@ function App() {
         </div>
 
       </section>
+
+      {/* Floating AI Assistant */}
+      <FloatingAIAssistant />
 
     </div>
 
