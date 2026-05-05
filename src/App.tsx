@@ -951,7 +951,7 @@ function App() {
 
           
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <FadeIn delay={0.1}>
 
@@ -990,6 +990,28 @@ function App() {
                   <CheckCircle2 className="text-emerald-400 shrink-0 mt-0.5" size={20} />
 
                   <p className="text-sm font-medium text-brand-muted leading-relaxed">{t.star2Result[lang]}</p>
+
+                </div>
+
+              </div>
+
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+
+              <div className="bg-brand-card border border-white/10 p-8 rounded-3xl shadow-lg relative overflow-hidden group hover:border-brand-accent/50 transition-colors h-full">
+
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
+
+                <h3 className="text-xl font-bold text-brand-accent mb-4">{t.star3Context[lang]}</h3>
+
+                <p className="text-white leading-relaxed mb-6">{t.star3Action[lang]}</p>
+
+                <div className="flex gap-3 bg-brand-dark p-5 rounded-2xl border border-white/5">
+
+                  <CheckCircle2 className="text-emerald-400 shrink-0 mt-0.5" size={20} />
+
+                  <p className="text-sm font-medium text-brand-muted leading-relaxed">{t.star3Result[lang]}</p>
 
                 </div>
 
